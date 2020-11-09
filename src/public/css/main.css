@@ -1,0 +1,4 @@
+@import "./global.css";
+@import "../js/components/app/app.css";
+@import "../js/components/intro/heading/heading.css";
+@import "../js/components/intro/subheading/subheading.css";

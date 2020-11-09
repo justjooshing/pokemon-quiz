@@ -1,0 +1,25 @@
+* {
+  margin: 0px;
+  padding: 0px;
+
+  --poke-yellow: #ffde00;
+  --poke-dark-yellow: #b3a125;
+  --poke-red: #ff0000;
+  --poke-dark-red: #cc0000;
+  --poke-blue: #3b4cca;
+}
+body {
+  background-color: var(--poke-yellow);
+}
+.heading_wrapper {
+  background-color: var(--poke-blue);
+  padding: 2em;
+  margin: 1em;
+  text-align: center;
+}
+.subheading_text {
+  margin: 1em 2em;
+  line-height: 2em;
+  text-align: center;
+  font-family: "Press Start 2P";
+}

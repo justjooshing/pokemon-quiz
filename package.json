@@ -4,10 +4,27 @@
   "description": "Pokemon Quiz built with React",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
+    "server:watch": "npx nodemon ./server.js",
+    "webpack:watch": "npx webpack --watch",
+    "css:watch": "npx postcss --watch ./src/public/css/main.css -o ./dist/main.css",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justjooshing/pokemon-quiz.git"
   },
   "author": "Josh",
   "license": "ISC",
+  
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
+  },
+
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
@@ -19,12 +36,5 @@
     "postcss-import": "^13.0.0",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.2.0"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
   }
 }

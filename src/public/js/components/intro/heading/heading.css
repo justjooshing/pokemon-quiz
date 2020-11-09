@@ -1,0 +1,6 @@
+.heading_wrapper {
+  background-color: var(--poke-blue);
+  padding: 2em;
+  margin: 1em;
+  text-align: center;
+}
