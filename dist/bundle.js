@@ -17,7 +17,7 @@
 /*! runtime requirements: module, __webpack_require__ */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nconst Heading = __webpack_require__(/*! ../intro/heading/Heading */ \"./src/public/js/components/intro/heading/Heading.js\");\n\nconst Subheading = __webpack_require__(/*! ../intro/subheading/Subheading */ \"./src/public/js/components/intro/subheading/Subheading.js\");\n\nclass App extends React.Component {\n  render() {\n    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Heading, null), /*#__PURE__*/React.createElement(Subheading, null));\n  }\n\n}\n\nmodule.exports = App;\n\n//# sourceURL=webpack://pokemon-quiz/./src/public/js/components/app/App.jsx?");
+eval("const React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nconst Heading = __webpack_require__(/*! ../intro/heading/Heading */ \"./src/public/js/components/intro/heading/Heading.js\");\n\nconst Subheading = __webpack_require__(/*! ../intro/subheading/Subheading */ \"./src/public/js/components/intro/subheading/Subheading.js\");\n\nconst Modes = __webpack_require__(/*! ../intro/modes/Modes */ \"./src/public/js/components/intro/modes/Modes.js\");\n\nclass App extends React.Component {\n  render() {\n    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Heading, null), /*#__PURE__*/React.createElement(Subheading, null), /*#__PURE__*/React.createElement(Modes, null));\n  }\n\n}\n\nmodule.exports = App;\n\n//# sourceURL=webpack://pokemon-quiz/./src/public/js/components/app/App.jsx?");
 
 /***/ }),
 
@@ -27,10 +27,48 @@ eval("const React = __webpack_require__(/*! react */ \"./node_modules/react/inde
   \***********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
-/*! CommonJS bailout: module.exports is used directly at 12:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("const React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nclass Heading extends React.Component {\n  render() {\n    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(\"h1\", {\n      className: \"heading_wrapper\"\n    }, \" Ultimate Pokemon Quiz\"));\n  }\n\n}\n\nmodule.exports = Heading;\n\n//# sourceURL=webpack://pokemon-quiz/./src/public/js/components/intro/heading/Heading.js?");
+
+/***/ }),
+
+/***/ "./src/public/js/components/intro/modes/Modes.js":
+/*!*******************************************************!*\
+  !*** ./src/public/js/components/intro/modes/Modes.js ***!
+  \*******************************************************/
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 16:0-14 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("const React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nconst EasyMode = __webpack_require__(/*! ./easy_mode/EasyMode */ \"./src/public/js/components/intro/modes/easy_mode/EasyMode.js\");\n\nconst HardMode = __webpack_require__(/*! ./hard_mode/HardMode */ \"./src/public/js/components/intro/modes/hard_mode/HardMode.js\");\n\nclass Modes extends React.Component {\n  render() {\n    return /*#__PURE__*/React.createElement(\"div\", {\n      className: \"modes_wrapper\"\n    }, /*#__PURE__*/React.createElement(EasyMode, null), /*#__PURE__*/React.createElement(HardMode, null));\n  }\n\n}\n\nmodule.exports = Modes;\n\n//# sourceURL=webpack://pokemon-quiz/./src/public/js/components/intro/modes/Modes.js?");
+
+/***/ }),
+
+/***/ "./src/public/js/components/intro/modes/easy_mode/EasyMode.js":
+/*!********************************************************************!*\
+  !*** ./src/public/js/components/intro/modes/easy_mode/EasyMode.js ***!
+  \********************************************************************/
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 11:0-14 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("const React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nfunction EasyMode() {\n  return /*#__PURE__*/React.createElement(\"div\", {\n    className: \"modes_options\"\n  }, /*#__PURE__*/React.createElement(\"h2\", {\n    className: \"mode_heading\"\n  }, \"EASY\"), /*#__PURE__*/React.createElement(\"p\", null, \"For pokemon masters in training\"));\n}\n\nmodule.exports = EasyMode;\n\n//# sourceURL=webpack://pokemon-quiz/./src/public/js/components/intro/modes/easy_mode/EasyMode.js?");
+
+/***/ }),
+
+/***/ "./src/public/js/components/intro/modes/hard_mode/HardMode.js":
+/*!********************************************************************!*\
+  !*** ./src/public/js/components/intro/modes/hard_mode/HardMode.js ***!
+  \********************************************************************/
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 11:0-14 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("const React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nfunction HardMode() {\n  return /*#__PURE__*/React.createElement(\"div\", {\n    className: \"modes_options\"\n  }, /*#__PURE__*/React.createElement(\"h2\", {\n    className: \"mode_heading\"\n  }, \"HARD\"), /*#__PURE__*/React.createElement(\"p\", null, \"For experienced pokemon masters\"));\n}\n\nmodule.exports = HardMode;\n\n//# sourceURL=webpack://pokemon-quiz/./src/public/js/components/intro/modes/hard_mode/HardMode.js?");
 
 /***/ }),
 
