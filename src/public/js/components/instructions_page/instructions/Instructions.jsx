@@ -3,34 +3,15 @@ const PropTypes = require("prop-types");
 
  class Instructions extends React.Component {
   render() {
-    // const {setMode, modes} = this.props;
-    // const instructionSet = modes.filter((mode) => { mode.type !== setMode})
-
-    // console.log(instructionSet)
-  
-    if (this.props.setMode === "easy") {
-    return (
-        <div className="instructions_wrapper">
-          <p>Here are the easy instructions</p>
-          <p>Here are the easy instructions</p>
-          <p>Here are the easy instructions</p>
-          <p>Here are the easy instructions</p>
-          <p>Here are the easy instructions</p>
-          <p>Here are the easy instructions</p>
-          <p>Here are the easy instructions</p>
-        </div>
-    )
-    } else if (this.props.setMode === "hard") {
+    const {setMode, modes} = this.props; 
+      if (setMode === modes[setMode].type) {
       return (
-        <div className="instructions_wrapper">
-          <p>Here are the hard instructions</p>
-          <p>Here are the hard instructions</p>
-          <p>Here are the hard instructions</p>
-          <p>Here are the hard instructions</p>
-          <p>Here are the hard instructions</p>
-          <p>Here are the hard instructions</p>
-        </div>
-      )
+          <div className="instructions_wrapper">
+            {modes[setMode].instructions.map((line) => 
+              <p key={modes[setMode].instructions.indexOf(line)}className="instructions_lines">{line}</p>
+            )}
+          </div>
+    )
     }
   }
 }

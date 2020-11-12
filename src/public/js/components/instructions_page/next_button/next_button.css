@@ -1,10 +1,10 @@
 .instructions_next_button {
   display: flex;
   place-content: center;
-  margin: 1em;
+  color: #fff;
   background-color: var(--poke-dark-red);
   padding: 1em;
-  color: #fff;
+  margin: 1em 2em;
   text-decoration: none;
 }
 

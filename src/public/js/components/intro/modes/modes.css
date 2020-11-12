@@ -1,13 +1,12 @@
 .modes_wrapper {
   display: flex;
   flex-direction: column;
-  margin: 10px 1em;
   place-content: space-evenly;
   text-align: center;
 }
 
 .modes_options {
-  margin: 1em;
+  margin: 1em 2em;
   background-color: var(--poke-dark-red);
   padding: 1em;
   color: #fff;
@@ -19,6 +18,10 @@
   font-family: var(--main-text-font);
   font-weight: lighter;
   animation: blink 1.5s infinite;
+}
+
+.mode_subheading {
+  font-family: var(--secondary-text-font);
 }
 
 @keyframes blink {

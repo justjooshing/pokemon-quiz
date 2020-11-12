@@ -9,22 +9,33 @@ const InstructionsPage = require("../instructions_page/InstructionsPage")
 class App extends React.Component {
   state = {
     setMode: "",
-    modes: [
-      {
-        id: "1",
-        type: "easy",
-        button_heading: "EASY",
-        button_paragraph: "For pokemon masters in training",
-        instructions: "easy easy easy"
-      },
-      {
-        id: "2",
-        type: "hard",
-        button_heading: "HARD",
-        button_paragraph: "For experienced pokemon masters",
-        instructions: "hard hard hard"
-      }
-    ]
+    modes: {
+      easy:  {
+          id: "1",
+          type: "easy",
+          button_heading: "EASY",
+          button_paragraph: "For pokemon masters in training",
+          instructions: [
+            "You will be shown a picture of a pokemon.",
+            "You will also be given four answer options.",
+            "Read the question carefully.",
+            "Select the appropriate answer.",
+          ],
+        },
+      hard:  {
+          id: "2",
+          type: "hard",
+          button_heading: "HARD",
+          button_paragraph: "For experienced pokemon masters",
+          instructions: [
+            "potato potato",
+            "You will be shown a picture of a pokemon.",
+            "You will also be given four answer options.",
+            "Read the question carefully.",
+            "Select the appropriate answer.",
+          ],
+        }
+    }
   }
 
    selectMode = (mode) => {

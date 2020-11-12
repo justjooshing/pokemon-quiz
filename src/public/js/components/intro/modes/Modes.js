@@ -6,7 +6,7 @@ class Modes extends React.Component {
   render() {
     return (
       <div className="modes_wrapper">
-        {this.props.modes.map((mode) => (
+        {Object.values(this.props.modes).map((mode) => (
           <ModeButton
             key={mode.id}
             selectMode={this.props.selectMode}
