@@ -2,5 +2,5 @@
   margin: 1em 2em;
   line-height: 2em;
   text-align: center;
-  font-family: "Press Start 2P";
+  font-family: var(--main-text-font);
 }

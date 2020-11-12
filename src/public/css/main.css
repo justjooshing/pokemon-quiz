@@ -1,5 +1,10 @@
 @import "./global.css";
+
 @import "../js/components/app/app.css";
+
 @import "../js/components/intro/heading/heading.css";
 @import "../js/components/intro/subheading/subheading.css";
 @import "../js/components/intro/modes/modes.css";
+
+@import "../js/components/instructions_page/instructions/instructions.css";
+@import "../js/components/instructions_page/next_button/next_button.css";

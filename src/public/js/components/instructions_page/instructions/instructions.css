@@ -1,0 +1,7 @@
+.instructions_wrapper {
+  background-color: var(--poke-blue);
+  margin: 1em;
+  padding: 2em;
+  color: #fff;
+  text-align: center;
+}

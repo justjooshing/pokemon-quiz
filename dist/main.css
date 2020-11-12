@@ -7,41 +7,52 @@
   --poke-red: #ff0000;
   --poke-dark-red: #cc0000;
   --poke-blue: #3b4cca;
+
+  --main-text-font: "Press Start 2P";
 }
+
 body {
+  position: relative;
   background-color: var(--poke-yellow);
 }
+
 .heading_wrapper {
   background-color: var(--poke-blue);
   padding: 2em;
   margin: 1em;
   text-align: center;
 }
+
 .subheading_text {
   margin: 1em 2em;
   line-height: 2em;
   text-align: center;
-  font-family: "Press Start 2P";
+  font-family: var(--main-text-font);
 }
+
 .modes_wrapper {
   display: flex;
   flex-direction: column;
   margin: 10px 1em;
   place-content: space-evenly;
+  text-align: center;
 }
+
 .modes_options {
   margin: 1em;
   background-color: var(--poke-dark-red);
   padding: 1em;
-  text-align: center;
   color: #fff;
+  text-decoration: none;
 }
+
 .mode_heading {
   padding-bottom: 5px;
-  font-family: "Press Start 2P";
+  font-family: var(--main-text-font);
   font-weight: lighter;
   animation: blink 1.5s infinite;
 }
+
 @keyframes blink {
   0% {
     opacity: 1;
@@ -49,4 +60,29 @@ body {
   50% {
     opacity: 0;
   }
+}
+
+.instructions_wrapper {
+  background-color: var(--poke-blue);
+  margin: 1em;
+  padding: 2em;
+  color: #fff;
+  text-align: center;
+}
+
+.instructions_next_button {
+  display: flex;
+  place-content: center;
+  margin: 1em;
+  background-color: var(--poke-dark-red);
+  padding: 1em;
+  color: #fff;
+  text-decoration: none;
+}
+
+.instructions_next_button__words {
+  padding-bottom: 5px;
+  font-family: var(--main-text-font);
+  font-weight: lighter;
+  animation: blink 1.5s infinite;
 }
