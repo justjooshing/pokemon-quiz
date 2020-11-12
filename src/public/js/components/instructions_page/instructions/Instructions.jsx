@@ -8,7 +8,11 @@ const PropTypes = require("prop-types");
       return (
           <div className="instructions_wrapper">
             {modes[setMode].instructions.map((line) => 
-              <p key={modes[setMode].instructions.indexOf(line)}className="instructions_lines">{line}</p>
+              <p 
+              key={modes[setMode].instructions.indexOf(line)} 
+              className="instructions_lines">
+                {line}
+              </p>
             )}
           </div>
     )

@@ -16,7 +16,9 @@ class App extends React.Component {
           button_heading: "EASY",
           button_paragraph: "For pokemon masters in training",
           instructions: [
-            "You will be shown a picture of a pokemon.",
+            "You will be presented with 10 questions.",
+            "One at a time.",
+            "You will be shown a picture of a pokemon and a question.",
             "You will also be given four answer options.",
             "Read the question carefully.",
             "Select the appropriate answer.",
@@ -28,11 +30,11 @@ class App extends React.Component {
           button_heading: "HARD",
           button_paragraph: "For experienced pokemon masters",
           instructions: [
-            "potato potato",
-            "You will be shown a picture of a pokemon.",
-            "You will also be given four answer options.",
+            "You will be presented with 10 questions.",
+            "One at a time.",
+            "You will be shown a picture of a pokemon and a question.",
             "Read the question carefully.",
-            "Select the appropriate answer.",
+            "Submit your answer in the textbox provided.",
           ],
         }
     }

@@ -69,7 +69,7 @@ body {
 
 .instructions_wrapper {
   background-color: var(--poke-blue);
-  margin: 1em 1em 3em 1em;
+  margin: 1em;
   padding: 2em;
   color: #fff;
   text-align: center;
@@ -96,4 +96,9 @@ body {
   font-family: var(--main-text-font);
   font-weight: lighter;
   animation: blink 1.5s infinite;
+}
+
+.mode_indicator {
+  margin: 1em;
+  text-align: right;
 }
