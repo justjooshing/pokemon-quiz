@@ -1,12 +1,17 @@
-const React = require("react");
-const { Link } = require("react-router-dom")
+import React from "react"
+import { Link } from "react-router-dom"
 
-function NextButton() {
+function NextButton(props) {
   return (
     <React.Fragment>
-      <Link to="../quiz/Quiz" className="instructions_next_button"><h2 className="instructions_next_button__words">CONTINUE</h2></Link>
+      <Link 
+        to="../quiz/Quiz" 
+        className="instructions_next_button" 
+        onClick={() => props.generateQuestions()}
+        ><h2 className="instructions_next_button__words">CONTINUE</h2>
+      </Link>
     </React.Fragment>
   );
 }
 
-module.exports = NextButton;
+export default NextButton;

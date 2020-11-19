@@ -1,4 +1,4 @@
-const React = require("react");
+import React from "react"
 
 function Subheading() {
   return (
@@ -13,4 +13,4 @@ function Subheading() {
   );
 }
 
-module.exports = Subheading;
+export default Subheading;

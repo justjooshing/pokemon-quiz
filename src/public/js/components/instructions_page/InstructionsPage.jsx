@@ -1,8 +1,8 @@
-const React = require("react");
-const NextButton = require("./next_button/NextButton");
-const Instructions = require("./instructions/Instructions");
-const ModeIndicator = require("./mode_indicator/ModeIndicator");
-const PropTypes = require("prop-types");
+import React  from "react"
+import NextButton  from "./next_button/NextButton"
+import Instructions  from "./instructions/Instructions"
+import ModeIndicator  from "../mode_indicator/ModeIndicator"
+import PropTypes  from "prop-types"
 
 class InstructionsPage extends React.Component {
   render() {
@@ -10,7 +10,10 @@ class InstructionsPage extends React.Component {
       <React.Fragment>
         <ModeIndicator setMode={this.props.setMode} modes={this.props.modes}/>
         <Instructions setMode={this.props.setMode} modes={this.props.modes}/>
-        <NextButton />
+        <NextButton 
+          generateQuestions={this.props.generateQuestions} 
+          //pokemon={this.props.pokemon}
+        />
       </React.Fragment>
     );
   }
@@ -20,4 +23,4 @@ InstructionsPage.propTypes = {
   setMode: PropTypes.string.isRequired
 } 
 
-module.exports = InstructionsPage;
+export default InstructionsPage;

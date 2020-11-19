@@ -1,3 +1,4 @@
+/* Global styling */
 * {
   margin: 0px;
   padding: 0px;
@@ -11,62 +12,13 @@
   --main-text-font: "Press Start 2P";
   --secondary-text-font: "Trocchi";
 }
-
+/* App level styling */
 body {
   position: relative;
   background-color: var(--poke-yellow);
-  height: 100%;
+  min-height: 100vh;
 }
-
-.heading_wrapper {
-  background-color: var(--poke-blue);
-  padding: 2em;
-  margin: 1em;
-  text-align: center;
-}
-
-.subheading_text {
-  margin: 1em 2em;
-  line-height: 2em;
-  text-align: center;
-  font-family: var(--main-text-font);
-}
-
-.modes_wrapper {
-  display: flex;
-  flex-direction: column;
-  place-content: space-evenly;
-  text-align: center;
-}
-
-.modes_options {
-  margin: 1em 2em;
-  background-color: var(--poke-dark-red);
-  padding: 1em;
-  color: #fff;
-  text-decoration: none;
-}
-
-.mode_heading {
-  padding-bottom: 5px;
-  font-family: var(--main-text-font);
-  font-weight: lighter;
-  animation: blink 1.5s infinite;
-}
-
-.mode_subheading {
-  font-family: var(--secondary-text-font);
-}
-
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
+/* Instructions page + modules styling */
 .instructions_wrapper {
   background-color: var(--poke-blue);
   margin: 1em;
@@ -74,13 +26,11 @@ body {
   color: #fff;
   text-align: center;
 }
-
 .instructions_lines {
   padding: 1em;
   font-family: var(--secondary-text-font);
   font-size: 17px;
 }
-
 .instructions_next_button {
   display: flex;
   place-content: center;
@@ -90,15 +40,65 @@ body {
   margin: 1em 2em;
   text-decoration: none;
 }
-
 .instructions_next_button__words {
   padding-bottom: 5px;
   font-family: var(--main-text-font);
   font-weight: lighter;
   animation: blink 1.5s infinite;
 }
-
-.mode_indicator {
+/* Intro page + modules styling */
+.heading_wrapper {
+  background-color: var(--poke-blue);
+  padding: 2em;
   margin: 1em;
-  text-align: right;
+  text-align: center;
+}
+.subheading_text {
+  margin: 1em 2em;
+  line-height: 2em;
+  text-align: center;
+  font-family: var(--main-text-font);
+}
+.modes_wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.modes_options {
+  margin: 1em 2em;
+  background-color: var(--poke-dark-red);
+  padding: 1em;
+  color: #fff;
+  text-decoration: none;
+}
+.mode_heading {
+  padding-bottom: 5px;
+  font-family: var(--main-text-font);
+  font-weight: lighter;
+  animation: blink 1.5s infinite;
+}
+.mode_subheading {
+  font-family: var(--secondary-text-font);
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+/* Mode indicator styling (used in instructions and quiz pages) */
+.mode_indicator {
+  display: flex;
+  margin: 1em;
+}
+/* Quiz page + modules styling */
+.indicators_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.round_indicator {
+  display: flex;
+  margin: 1em;
 }

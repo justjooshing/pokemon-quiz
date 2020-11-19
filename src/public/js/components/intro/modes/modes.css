@@ -1,7 +1,6 @@
 .modes_wrapper {
   display: flex;
   flex-direction: column;
-  place-content: space-evenly;
   text-align: center;
 }
 

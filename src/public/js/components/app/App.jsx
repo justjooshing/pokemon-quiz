@@ -1,14 +1,17 @@
-const React = require('react');
-const {BrowserRouter: Router, Route} = require("react-router-dom")
+import React from 'react'
+import {BrowserRouter as Router, Route} from "react-router-dom"
 
-const Heading = require("../intro/heading/Heading");
-const Subheading = require("../intro/subheading/Subheading")
-const Modes = require("../intro/modes/Modes");
-const InstructionsPage = require("../instructions_page/InstructionsPage")
+import Heading from "../intro/heading/Heading"
+import Subheading from "../intro/subheading/Subheading"
+import Modes from "../intro/modes/Modes"
+
+import InstructionsPage from "../instructions_page/InstructionsPage"
+import Quiz from "../quiz/Quiz"
 
 class App extends React.Component {
   state = {
     setMode: "",
+    round: 1,
     modes: {
       easy:  {
           id: "1",
@@ -37,6 +40,10 @@ class App extends React.Component {
             "Submit your answer in the textbox provided.",
           ],
         }
+    },
+    pokemon: {
+        name: "test",
+        image: "test again",
     }
   }
 
@@ -44,6 +51,24 @@ class App extends React.Component {
     this.setState({
       setMode: mode    
     })
+  }
+
+  
+ generateQuestions = async () => {
+    const number = Math.floor(Math.random() * 151);
+    const nameUrl = `https://pokeapi.co/api/v2/pokemon/${number}`;
+    const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png`;
+    
+    const response = await fetch(nameUrl);
+    const data = await response.json();
+
+    const pokemon = {...this.state.pokemon};
+    pokemon.name = data.name;
+    pokemon.image = imageUrl;
+    this.setState({
+      pokemon,
+    });
+    console.log(this.state.pokemon)
   }
 
 
@@ -57,7 +82,10 @@ class App extends React.Component {
           <React.Fragment>
             <Heading />
             <Subheading />
-            <Modes selectMode={this.selectMode} modes={this.state.modes}/>
+            <Modes 
+              selectMode={this.selectMode} 
+              modes={this.state.modes}
+            />
           </React.Fragment>
           )}
         />
@@ -65,7 +93,12 @@ class App extends React.Component {
           path="/instructions"
           render={() => (
             <React.Fragment>
-              <InstructionsPage setMode={this.state.setMode} modes={this.state.modes}/>
+              <InstructionsPage 
+                setMode={this.state.setMode} 
+                modes={this.state.modes} 
+                generateQuestions={this.generateQuestions} 
+                //pokemon={this.state.pokemon}
+              />
           </React.Fragment>
           )}
         />
@@ -73,7 +106,10 @@ class App extends React.Component {
           path="/quiz"
           render={() => (
             <React.Fragment>
-              <Quiz />
+              <Quiz 
+              setMode={this.state.setMode} 
+              modes={this.state.modes} 
+              round={this.state.round}/>
           </React.Fragment>
           )}
         />
@@ -82,4 +118,4 @@ class App extends React.Component {
   }
 }
 
-module.exports = App;
+export default App;

@@ -1,4 +1,4 @@
-const React = require("react");
+import React from "react"
 
 function Heading() {
   return (
@@ -8,4 +8,4 @@ function Heading() {
   );
 }
 
-module.exports = Heading;
+export default Heading;

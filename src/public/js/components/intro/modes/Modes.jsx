@@ -1,6 +1,6 @@
-const React = require("react");
-const ModeButton = require("./ModeButton");
-const PropTypes = require("prop-types");
+import React from "react"
+import ModeButton from "./ModeButton"
+import PropTypes from "prop-types"
 
 class Modes extends React.Component {
   render() {
@@ -23,4 +23,4 @@ Modes.propTypes = {
   selectMode: PropTypes.func.isRequired,
 };
 
-module.exports = Modes;
+export default Modes;

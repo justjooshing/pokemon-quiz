@@ -1,5 +1,5 @@
-const React = require('react');
-const PropTypes = require("prop-types");
+import React from 'react'
+import PropTypes from "prop-types"
 
  class Instructions extends React.Component {
   render() {
@@ -24,4 +24,4 @@ Instructions.propTypes = {
   setMode: PropTypes.string.isRequired
 } 
 
-module.exports = Instructions;
+export default Instructions;

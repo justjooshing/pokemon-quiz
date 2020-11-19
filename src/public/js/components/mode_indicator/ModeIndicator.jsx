@@ -1,5 +1,5 @@
-const React = require('react');
-const PropTypes = require("prop-types");
+import React from 'react'
+import PropTypes from "prop-types"
 
 class ModeIndicator extends React.Component {
   render() {
@@ -18,4 +18,4 @@ ModeIndicator.propTypes = {
   setMode: PropTypes.string.isRequired
 } 
 
-module.exports = ModeIndicator
+export default ModeIndicator

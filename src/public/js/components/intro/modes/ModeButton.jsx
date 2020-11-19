@@ -1,6 +1,6 @@
-const React = require("react");
-const { Link } = require("react-router-dom");
-const PropTypes = require("prop-types");
+import React  from"react"
+import { Link }  from"react-router-dom"
+import PropTypes  from"prop-types"
 
 class ModeButton extends React.Component {
   render() {
@@ -21,4 +21,4 @@ ModeButton.propTypes = {
   mode: PropTypes.object.isRequired,
   selectMode: PropTypes.func.isRequired
 };
-module.exports = ModeButton;
+export default ModeButton;

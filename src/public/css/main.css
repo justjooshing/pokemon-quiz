@@ -1,11 +1,17 @@
+/* Global styling */
 @import "./global.css";
 
+/* App level styling */
 @import "../js/components/app/app.css";
 
-@import "../js/components/intro/heading/heading.css";
-@import "../js/components/intro/subheading/subheading.css";
-@import "../js/components/intro/modes/modes.css";
+/* Instructions page + modules styling */
+@import "../js/components/instructions_page/instructions_page.css";
 
-@import "../js/components/instructions_page/instructions/instructions.css";
-@import "../js/components/instructions_page/next_button/next_button.css";
-@import "../js/components/instructions_page/mode_indicator/mode_indicator.css";
+/* Intro page + modules styling */
+@import "../js/components/intro/intro.css";
+
+/* Mode indicator styling (used in instructions and quiz pages) */
+@import "../js/components/mode_indicator/mode_indicator.css";
+
+/* Quiz page + modules styling */
+@import "../js/components/quiz/quiz.css";
