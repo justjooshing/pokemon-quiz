@@ -102,12 +102,15 @@ body {
   display: flex;
   margin: 1em;
 }
-.pokemon_image_wrapper {
+.quiz_pokemon_image_wrapper {
   display: flex;
   justify-content: center;
   background-color: black;
   margin: 0em 1em;
 }
-.pokemon_image {
+.quiz_pokemon_image {
   height: 50vh;
+}
+.quiz_pokemon_question {
+  text-align: center;
 }
