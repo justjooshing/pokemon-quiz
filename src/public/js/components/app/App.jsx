@@ -12,7 +12,7 @@ import Quiz from "../quiz/Quiz"
 class App extends React.Component {
   state = {
     setMode: "",
-    round: 1,
+    round: 0,
     modes: {
       easy:  {
           id: "1",
@@ -81,11 +81,10 @@ class App extends React.Component {
       //Assign pokemon to set
       pokemonSet.push(pokemon)
     }
-  //Set state with new pokemon set
-  this.setState({
-    pokemonSet,
-  });
-  console.log(this.state.pokemonSet)
+   //Set state with new pokemon set
+    this.setState({
+      pokemonSet,
+    });
   }
 
 
@@ -96,38 +95,40 @@ class App extends React.Component {
         exact
         path="/"
         render={() => (
-          <React.Fragment>
+          <>
             <Heading />
             <Subheading />
             <Modes 
               selectMode={this.selectMode} 
               modes={this.state.modes}
             />
-          </React.Fragment>
+          </>
           )}
         />
         <Route 
           path="/instructions"
           render={() => (
-            <React.Fragment>
+            <>
               <InstructionsPage 
                 setMode={this.state.setMode} 
                 modes={this.state.modes} 
                 generateQuestions={this.generateQuestions} 
                 //pokemon={this.state.pokemon}
               />
-          </React.Fragment>
+          </>
           )}
         />
         <Route 
           path="/quiz"
           render={() => (
-            <React.Fragment>
+            <>
               <Quiz 
-              setMode={this.state.setMode} 
-              modes={this.state.modes} 
-              round={this.state.round}/>
-          </React.Fragment>
+              setMode = {this.state.setMode} 
+              modes = {this.state.modes} 
+              round = {this.state.round}
+              pokemonSet = {this.state.pokemonSet}
+              />
+          </>
           )}
         />
       </Router>

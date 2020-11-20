@@ -6,15 +6,17 @@ import PokemonImage from "./pokemon_image/PokemonImage"
 
 class Quiz extends React.Component {
   render() {
+    const {pokemonSet , round} = this.props;
+
+    console.log(pokemonSet[round])
     return (
       <div>
         <Indicators 
-          round={this.props.round}
+          round={round}
           setMode={this.props.setMode} 
           modes={this.props.modes}
         />
-        {/* <PokemonImage pokemon={this.state.pokemon}/> */}
-        {/* <img src={PokeSet.image} alt={`Image of ${PokeSet.name}`}/> */}
+        {/* <PokemonImage pokemon={pokemonSet[round]}/> */}
         {/* <Question />
         <Answer
         // add conditional rendering in here
