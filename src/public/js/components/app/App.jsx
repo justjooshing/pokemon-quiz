@@ -42,7 +42,6 @@ class App extends React.Component {
           ],
         }
     },
-    pokemonSet: []
   }
 
    selectMode = (mode) => {
@@ -54,7 +53,7 @@ class App extends React.Component {
   
  generateQuestions = async () => {
   const n = 10;
-  const pokemonSet = [...this.state.pokemonSet]
+  const pokemonSet = [];
 
   for (let i = 0; i < n; i++) {
       const pokemon = {};
