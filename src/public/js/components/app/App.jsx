@@ -1,5 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Route} from "react-router-dom"
+import concat from "lodash/concat";
 
 import Heading from "../intro/heading/Heading"
 import Subheading from "../intro/subheading/Subheading"
@@ -41,10 +42,7 @@ class App extends React.Component {
           ],
         }
     },
-    pokemon: {
-        name: "test",
-        image: "test again",
-    }
+    pokemonSet: []
   }
 
    selectMode = (mode) => {
@@ -55,20 +53,39 @@ class App extends React.Component {
 
   
  generateQuestions = async () => {
-    const number = Math.floor(Math.random() * 151);
-    const nameUrl = `https://pokeapi.co/api/v2/pokemon/${number}`;
-    const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png`;
-    
-    const response = await fetch(nameUrl);
-    const data = await response.json();
+  const n = 10;
+  const pokemonSet = [...this.state.pokemonSet]
 
-    const pokemon = {...this.state.pokemon};
-    pokemon.name = data.name;
-    pokemon.image = imageUrl;
-    this.setState({
-      pokemon,
-    });
-    console.log(this.state.pokemon)
+  for (let i = 0; i < n; i++) {
+      const pokemon = {};
+      const number = Math.floor(Math.random() * 151);
+      const nameUrl = `https://pokeapi.co/api/v2/pokemon/${number}`;
+      const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png`;
+      
+      const response = await fetch(nameUrl);
+      const data = await response.json();
+
+      //Grab and assign name
+      pokemon.name = data.name;
+
+      //Grab, assign and join type
+      pokemon.type = []
+      data.types.forEach(index => {
+        pokemon.type.push(index.type.name)    
+      });
+      pokemon.type = pokemon.type.join("/");
+
+      //Assign url
+      pokemon.image = imageUrl;
+
+      //Assign pokemon to set
+      pokemonSet.push(pokemon)
+    }
+  //Set state with new pokemon set
+  this.setState({
+    pokemonSet,
+  });
+  console.log(this.state.pokemonSet)
   }
 
 
