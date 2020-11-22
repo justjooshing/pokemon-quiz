@@ -8,6 +8,7 @@ import Modes from "../intro/modes/Modes"
 
 import InstructionsPage from "../instructions_page/InstructionsPage"
 import Quiz from "../quiz/Quiz"
+import { array } from 'prop-types';
 
 class App extends React.Component {
   state = {
@@ -42,48 +43,131 @@ class App extends React.Component {
           ],
         }
     },
+    types: [
+      "grass/poison", 
+      "fire", 
+      "fire/flying", 
+      "water", 
+      "bug", 
+      "bug/flying", 
+      "bug/poison", 
+      "normal/flying", 
+      "normal", 
+      "poison", 
+      "electric", 
+      "ground", 
+      "poison/ground", 
+      "fairy", 
+      "normal/fairy", 
+      "poison/flying", 
+      "bug/grass", 
+      "fighting", 
+      "water/fighting", 
+      "psychic", 
+      "water/poison", 
+      "rock/ground", 
+      "water/psychic", 
+      "electric/steel", 
+      "water/ice", 
+      "ghost/poison", 
+      "grass/psychic", 
+      "ground/rock", 
+      "grass", 
+      "psychic/fairy", 
+      "ice/psychic", 
+      "water/flying", 
+      "rock/water", 
+      "rock/flying", 
+      "ice/flying", 
+      "electric/flying", 
+      "dragon", 
+      "dragon/flying"] 
   }
 
    selectMode = (mode) => {
     this.setState({
       setMode: mode    
     })
+
+    this.grabAllPokemon().then
   }
 
-  
- generateQuestions = async () => {
-  const n = 10;
-  const pokemonSet = [];
+  grabAllPokemon = async () => {
+    let startN = 1
+    const endN = 151;
+    const pokemonSet = [];
 
-  for (let i = 0; i < n; i++) {
-      const pokemon = {};
-      const number = Math.floor(Math.random() * 151);
-      const nameUrl = `https://pokeapi.co/api/v2/pokemon/${number}`;
-      const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png`;
-      
-      const response = await fetch(nameUrl);
-      const data = await response.json();
+    for (startN; startN <= endN; startN++) {
+        const pokemon = {};
+        const nameUrl = `https://pokeapi.co/api/v2/pokemon/${startN}`;
+        const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${startN}.png`;
+        
+        const response = await fetch(nameUrl);
+        const data = await response.json();
 
-      //Grab and assign name
-      pokemon.name = data.name;
+        //Grab and assign name
+        pokemon.name = data.name;
 
-      //Grab, assign and join type
-      pokemon.type = []
-      data.types.forEach(index => {
-        pokemon.type.push(index.type.name)    
+          //remove the female and male tags from the nidoran names
+          if (pokemon.name.includes("nidoran")) {
+            pokemon.name = "nidoran"
+          }
+
+        //Grab, assign and join type
+        pokemon.type = []
+        data.types.forEach(index => {
+          pokemon.type.push(index.type.name)    
+        });
+        pokemon.type = pokemon.type.join("/");
+
+        //Assign url
+        pokemon.image = imageUrl;
+
+        //Assign pokemon to set
+        pokemonSet.push(pokemon)
+      }
+
+    //Set state with new pokemon set
+      this.setState({
+        pokemonSet,
       });
-      pokemon.type = pokemon.type.join("/");
-
-      //Assign url
-      pokemon.image = imageUrl;
-
-      //Assign pokemon to set
-      pokemonSet.push(pokemon)
     }
-   //Set state with new pokemon set
+
+  
+  generateQuestions = () => {
+    const n = 10; //number of questions
+    const questionSet = [];
+
+      while (questionSet.length < n) {
+        const number = (Math.floor(Math.random() * 151) + 1);
+
+        if (!questionSet.includes(this.state.pokemonSet[number])) {
+        questionSet.push(this.state.pokemonSet[number])
+        }
+      }
+
+    //Set state with 10 pokemon questions
     this.setState({
-      pokemonSet,
-    });
+      questionSet,
+    }, () => this.generatePossibleAnswers())
+    
+  } 
+
+  generatePossibleAnswers = () => {
+    this.state.questionSet.forEach(selectedPokemon => {
+      const possibleAnswers = [];
+
+      possibleAnswers.push(selectedPokemon.type);
+
+      //Randomly choose 3 of the wrong answers
+      while (possibleAnswers.length < 4){
+        const num = Math.floor(Math.random() * 37);
+        if (!possibleAnswers.includes(this.state.types[num])) {
+        possibleAnswers.push(this.state.types[num])
+        }
+      }
+      console.log(possibleAnswers)
+    })
   }
 
 
@@ -111,8 +195,8 @@ class App extends React.Component {
               <InstructionsPage 
                 setMode={this.state.setMode} 
                 modes={this.state.modes} 
-                generateQuestions={this.generateQuestions} 
-                //pokemon={this.state.pokemon}
+                generateQuestions={this.generateQuestions}
+                pokemonSet={this.state.pokemonSet}
               />
           </>
           )}
@@ -125,7 +209,7 @@ class App extends React.Component {
               setMode = {this.state.setMode} 
               modes = {this.state.modes} 
               round = {this.state.round}
-              pokemonSet = {this.state.pokemonSet}
+              questionSet = {this.state.questionSet}
               />
           </>
           )}

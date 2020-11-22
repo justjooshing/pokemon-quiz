@@ -1,6 +1,6 @@
 import React from 'react'
 
-import RoundIndicator from "../round_indicator/RoundIndicator"
+import RoundIndicator from "./round_indicator/RoundIndicator"
 import ModeIndicator from "../../mode_indicator/ModeIndicator"
 
 class Indicators extends React.Component {
