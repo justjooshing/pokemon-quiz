@@ -11,7 +11,7 @@ class InstructionsPage extends React.Component {
         <ModeIndicator setMode={this.props.setMode} modes={this.props.modes}/>
         <Instructions setMode={this.props.setMode} modes={this.props.modes}/>
         <NextButton 
-          generateQuestions={this.props.generateQuestions} 
+          generatePossibleAnswers={this.props.generatePossibleAnswers} 
         />
       </>
     );

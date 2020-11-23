@@ -84,89 +84,114 @@ class App extends React.Component {
       "dragon/flying"] 
   }
 
-   selectMode = (mode) => {
+  selectMode = (mode) => {
     this.setState({
       setMode: mode    
     })
-
-    this.grabAllPokemon().then
+    this.grabAllPokemonNames()
   }
 
-  grabAllPokemon = async () => {
-    let startN = 1
-    const endN = 151;
-    const pokemonSet = [];
+  grabAllPokemonNames = async () => {
 
-    for (startN; startN <= endN; startN++) {
-        const pokemon = {};
-        const nameUrl = `https://pokeapi.co/api/v2/pokemon/${startN}`;
-        const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${startN}.png`;
-        
-        const response = await fetch(nameUrl);
-        const data = await response.json();
+    const allPokemonFetch = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=151");
+    const allPokemonJSON = await allPokemonFetch.json();
 
-        //Grab and assign name
-        pokemon.name = data.name;
+    //Push names only into an array
+    const allPokemonNames = [];
+    allPokemonJSON.results.forEach(pokemon => {
+      allPokemonNames.push(pokemon.name)
+    })
 
-          //remove the female and male tags from the nidoran names
-          if (pokemon.name.includes("nidoran")) {
-            pokemon.name = "nidoran"
-          }
+    //set state with all 151 pokemon names array
+    this.setState({
+      names: allPokemonNames
+    }, () => this.generateQuestions())
+}
 
-        //Grab, assign and join type
-        pokemon.type = []
-        data.types.forEach(index => {
-          pokemon.type.push(index.type.name)    
-        });
-        pokemon.type = pokemon.type.join("/");
-
-        //Assign url
-        pokemon.image = imageUrl;
-
-        //Assign pokemon to set
-        pokemonSet.push(pokemon)
-      }
-
-    //Set state with new pokemon set
-      this.setState({
-        pokemonSet,
-      });
-    }
-
-  
-  generateQuestions = () => {
-    const n = 10; //number of questions
+  generateQuestions = async () => {
+    const numberOfPokemon = 10;
     const questionSet = [];
 
-      while (questionSet.length < n) {
-        const number = (Math.floor(Math.random() * 151) + 1);
+    //grab n (10) number of pokemon from the API
+    while (questionSet.length < numberOfPokemon) {
+      const number = Math.floor(Math.random() * 151) + 1;
+      const pokemon = {};
+      const nameUrl = `https://pokeapi.co/api/v2/pokemon/${number}`;
+      const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png`;
+    
+      const singlePokemonResponse = await fetch(nameUrl);
+      const singlePokemonJSON = await singlePokemonResponse.json();
 
-        if (!questionSet.includes(this.state.pokemonSet[number])) {
-        questionSet.push(this.state.pokemonSet[number])
-        }
+      //Grab and assign name
+      pokemon.name = singlePokemonJSON.name;
+
+      //remove the female and male tags from the nidoran names
+      if (pokemon.name.includes("nidoran")) {
+        pokemon.name = "nidoran"
       }
 
-    //Set state with 10 pokemon questions
+      //Grab, assign and join type
+      pokemon.type = [];
+      singlePokemonJSON.types.forEach(typeIndex => {
+        pokemon.type.push(typeIndex.type.name)    
+      });
+      pokemon.type = pokemon.type.join("/");
+
+      //Assign url
+      pokemon.image = imageUrl;
+
+      //Assign pokemon to set
+      if (!questionSet.some(pokemonIndex => pokemonIndex.name === pokemon.name)) {
+      questionSet.push(pokemon)
+      }
+    }
+
+    //Set state with new pokemon set now containing (n) pokemon
     this.setState({
       questionSet,
-    }, () => this.generatePossibleAnswers())
-    
-  } 
+    });
+}
 
-  generatePossibleAnswers = () => {
-    this.state.questionSet.forEach(selectedPokemon => {
-      const possibleAnswers = [];
+  generatePossibleAnswers = () => { 
+    console.log(this.state.questionSet[0].name, this.state.questionSet[0].type)
 
-      possibleAnswers.push(selectedPokemon.type);
+     //Generate array of Type answers
+    const generateTypeAnswers = (selectedPokemon) => {     
+      const possibleTypeAnswers = [];
 
-      //Randomly choose 3 of the wrong answers
-      while (possibleAnswers.length < 4){
+      //Add correct type answer
+      possibleTypeAnswers.push(selectedPokemon.type);
+
+      //Randomly choose 3 of the wrong type answers
+      while (possibleTypeAnswers.length < 4) {
         const num = Math.floor(Math.random() * 37);
-        if (!possibleAnswers.includes(this.state.types[num])) {
-        possibleAnswers.push(this.state.types[num])
+        if (!possibleTypeAnswers.includes(this.state.types[num])) {
+          possibleTypeAnswers.push(this.state.types[num])
         }
       }
-      console.log(possibleAnswers)
+      console.log(possibleTypeAnswers)
+    }
+
+    //Generate array of Name answers
+    const generateNameAnswers = (selectedPokemon) => {         
+      const possibleNameAnswers = [];
+         
+      //Add correct name answer
+      possibleNameAnswers.push(selectedPokemon.name);
+
+      //Randomly choose 3 of the wrong name answers
+      while (possibleNameAnswers.length < 4) {
+        const num = Math.floor(Math.random() * 151);
+        if (!possibleNameAnswers.includes(this.state.names[num])) {
+          possibleNameAnswers.push(this.state.names[num])
+          }
+       }
+       console.log(possibleNameAnswers)
+     }
+      
+    this.state.questionSet.forEach(selectedPokemon => {
+      generateTypeAnswers(selectedPokemon);
+      generateNameAnswers(selectedPokemon);
     })
   }
 
@@ -195,7 +220,7 @@ class App extends React.Component {
               <InstructionsPage 
                 setMode={this.state.setMode} 
                 modes={this.state.modes} 
-                generateQuestions={this.generateQuestions}
+                generatePossibleAnswers={this.generatePossibleAnswers}
                 pokemonSet={this.state.pokemonSet}
               />
           </>
