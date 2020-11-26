@@ -7,10 +7,13 @@ const capitaliseFirstLetter = (string) => {
 export class AnswerButton extends Component {
 
   render() {
-    let { answer } = this.props;
+    let { answer, selectedAnswer } = this.props;
     answer = capitaliseFirstLetter(answer)
     return (
-      <div className = "quiz_answer_buttons">
+      <div 
+        className={answer===selectedAnswer ? "quiz_answer_buttons_selected" : "quiz_answer_buttons" }
+        onClick={() => this.props.isSelected(answer)
+        }>
         {answer}
       </div>
     )

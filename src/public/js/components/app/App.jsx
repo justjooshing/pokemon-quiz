@@ -202,13 +202,13 @@ class App extends React.Component {
     }
 
     const generateAnswerSets = (selectedPokemon) => {
-      const questionTopic = ['Pokemon', 'type'];
+      const questionTopic = ['name', 'type'];
       const chosenTopic = questionTopic[Math.floor(Math.random() * 2)];
       answerTopics.push(chosenTopic)  
        
       if (chosenTopic === 'type') {
         generateTypeAnswers(selectedPokemon)
-      } else if (chosenTopic === 'Pokemon') {
+      } else if (chosenTopic === 'name') {
         generateNameAnswers(selectedPokemon)
       }
     }

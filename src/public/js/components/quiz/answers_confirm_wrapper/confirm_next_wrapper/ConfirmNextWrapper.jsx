@@ -6,9 +6,11 @@ export class ConfirmNextWrapper extends Component {
   render() {
     return (
       <div className="quiz_confirm_next_wrapper">
-        <ConfirmNextButton 
-        round={this.props.round}
-        roundCounter={this.props.roundCounter}
+        <ConfirmNextButton
+        whichButton={this.props.whichButton}
+        checkAnswer={this.props.checkAnswer}
+        nextQuestion={this.props.nextQuestion}
+        skipQuestion={this.props.skipQuestion}
         />
       </div>
     )

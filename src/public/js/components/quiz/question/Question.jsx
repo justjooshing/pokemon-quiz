@@ -8,7 +8,7 @@ export class Question extends React.Component {
         In front of you is a Pokemon.
       </p>
       <p className="quiz_pokemon_question">
-        Name the {this.props.topic}.
+        What is its {this.props.topic}?
       </p>
       </>
     )
