@@ -1,0 +1,7 @@
+@import "./confirm_next_button/confirm_next_button.css";
+
+.quiz_confirm_next_wrapper {
+  display: flex;
+  padding: 1em;
+  justify-content: flex-end;
+}

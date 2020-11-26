@@ -17,6 +17,7 @@ body {
   position: relative;
   background-color: var(--poke-yellow);
   min-height: 100vh;
+  font-family: var(--secondary-text-font);
 }
 /* Instructions page + modules styling */
 .instructions_wrapper {
@@ -106,11 +107,43 @@ body {
   display: flex;
   justify-content: center;
   background-color: black;
-  margin: 0em 1em;
+  margin: 0em 1em 1em;
 }
 .quiz_pokemon_image {
   height: 50vh;
 }
 .quiz_pokemon_question {
   text-align: center;
+  font-family: var(--main-text-font);
+  padding: 0.5em;
+  line-height: 1.5em;
+}
+.quiz_answer_buttons {
+  text-align: center;
+  padding: 1em;
+  background: var(--poke-blue);
+}
+.quiz_answer_buttons_selected {
+  border: solid green 1px;
+}
+.quiz_answers_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 1em;
+  margin: 2em 1em 0em;
+}
+.quiz_confirm_button {
+  background: red;
+  color: white;
+  padding: 0.5em;
+}
+.quiz_confirm_button_text {
+  font-family: var(--main-text-font);
+  animation: blink 1.5s infinite;
+}
+.quiz_confirm_next_wrapper {
+  display: flex;
+  padding: 1em;
+  justify-content: flex-end;
 }

@@ -5,7 +5,7 @@ class RoundIndicator extends React.Component {
   render() {
     return (
       <div className="round_indicator">
-        {`${this.props.round}/10`}
+        {`${this.props.round + 1}/10`}
       </div>
     )
   }

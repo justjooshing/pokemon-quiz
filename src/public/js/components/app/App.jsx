@@ -1,19 +1,18 @@
 import React from 'react'
-import {BrowserRouter as Router, Route} from "react-router-dom"
-import concat from "lodash/concat";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 
 import Heading from "../intro/heading/Heading"
 import Subheading from "../intro/subheading/Subheading"
 import Modes from "../intro/modes/Modes"
 
 import InstructionsPage from "../instructions_page/InstructionsPage"
-import Quiz from "../quiz/Quiz"
-import { array } from 'prop-types';
+import Quiz from "../quiz/Quiz";
 
 class App extends React.Component {
   state = {
     setMode: "",
     round: 0,
+    score: 0,
     modes: {
       easy:  {
           id: "1",
@@ -81,7 +80,13 @@ class App extends React.Component {
       "ice/flying", 
       "electric/flying", 
       "dragon", 
-      "dragon/flying"] 
+      "dragon/flying"],
+    answerTopics: [
+
+    ],
+    answerSets: [
+
+    ]
   }
 
   selectMode = (mode) => {
@@ -89,6 +94,12 @@ class App extends React.Component {
       setMode: mode    
     })
     this.grabAllPokemonNames()
+  }
+
+  roundCounter = () => {
+    this.setState({
+      round: this.state.round +1
+    });
   }
 
   grabAllPokemonNames = async () => {
@@ -152,10 +163,11 @@ class App extends React.Component {
     });
 }
 
-  generatePossibleAnswers = () => { 
-    console.log(this.state.questionSet[0].name, this.state.questionSet[0].type)
+  generatePossibleAnswers = () => {
+    const answerTopics = [];
+    const answerSets = [];
 
-     //Generate array of Type answers
+    //Generate array of Type answers
     const generateTypeAnswers = (selectedPokemon) => {     
       const possibleTypeAnswers = [];
 
@@ -169,13 +181,13 @@ class App extends React.Component {
           possibleTypeAnswers.push(this.state.types[num])
         }
       }
-      console.log(possibleTypeAnswers)
+      answerSets.push(possibleTypeAnswers)
     }
 
-    //Generate array of Name answers
-    const generateNameAnswers = (selectedPokemon) => {         
+     //Generate array of Name answers
+     const generateNameAnswers = (selectedPokemon) => {         
       const possibleNameAnswers = [];
-         
+          
       //Add correct name answer
       possibleNameAnswers.push(selectedPokemon.name);
 
@@ -184,15 +196,32 @@ class App extends React.Component {
         const num = Math.floor(Math.random() * 151);
         if (!possibleNameAnswers.includes(this.state.names[num])) {
           possibleNameAnswers.push(this.state.names[num])
-          }
-       }
-       console.log(possibleNameAnswers)
-     }
+        }
+      }
+      answerSets.push(possibleNameAnswers)
+    }
+
+    const generateAnswerSets = (selectedPokemon) => {
+      const questionTopic = ['Pokemon', 'type'];
+      const chosenTopic = questionTopic[Math.floor(Math.random() * 2)];
+      answerTopics.push(chosenTopic)  
+       
+      if (chosenTopic === 'type') {
+        generateTypeAnswers(selectedPokemon)
+      } else if (chosenTopic === 'Pokemon') {
+        generateNameAnswers(selectedPokemon)
+      }
+    }
       
     this.state.questionSet.forEach(selectedPokemon => {
-      generateTypeAnswers(selectedPokemon);
-      generateNameAnswers(selectedPokemon);
+      generateAnswerSets(selectedPokemon);
     })
+
+    this.setState({
+      answerTopics, answerSets
+    })
+
+    
   }
 
 
@@ -235,6 +264,9 @@ class App extends React.Component {
               modes = {this.state.modes} 
               round = {this.state.round}
               questionSet = {this.state.questionSet}
+              answerSets = {this.state.answerSets}
+              answerTopics = {this.state.answerTopics}
+              roundCounter = {this.roundCounter}
               />
           </>
           )}

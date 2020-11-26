@@ -1,0 +1,10 @@
+.quiz_confirm_button {
+  background: red;
+  color: white;
+  padding: 0.5em;
+}
+
+.quiz_confirm_button_text {
+  font-family: var(--main-text-font);
+  animation: blink 1.5s infinite;
+}

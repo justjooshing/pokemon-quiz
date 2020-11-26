@@ -1,0 +1,9 @@
+.quiz_answer_buttons {
+  text-align: center;
+  padding: 1em;
+  background: var(--poke-blue);
+}
+
+.quiz_answer_buttons_selected {
+  border: solid green 1px;
+}
