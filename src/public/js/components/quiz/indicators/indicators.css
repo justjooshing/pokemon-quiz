@@ -1,3 +1,5 @@
+@import "./round_indicator/round_indicator.css";
+
 .indicators_wrapper {
   display: flex;
   justify-content: space-between;

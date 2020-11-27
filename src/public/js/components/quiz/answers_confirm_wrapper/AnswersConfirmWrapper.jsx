@@ -11,6 +11,8 @@ export class AnswersConfirmWrapper extends Component {
 
   checkAnswer = () => {
     const givenAnswer = this.state.selectedAnswer.toLowerCase();
+    
+    //topics will either be "name" or "type"
     const answerToCompare = this.props.pokemon[this.props.topics];
     if (givenAnswer === answerToCompare) {
       console.log("correct")

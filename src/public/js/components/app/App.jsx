@@ -110,6 +110,10 @@ class App extends React.Component {
     //Push names only into an array
     const allPokemonNames = [];
     allPokemonJSON.results.forEach(pokemon => {
+      //remove the female and male tags from the nidoran names
+      if (pokemon.name.includes("nidoran")) {
+        pokemon.name = "nidoran"
+      }
       allPokemonNames.push(pokemon.name)
     })
 

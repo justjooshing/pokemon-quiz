@@ -95,13 +95,13 @@ body {
   margin: 1em;
 }
 /* Quiz page + modules styling */
-.indicators_wrapper {
-  display: flex;
-  justify-content: space-between;
-}
 .round_indicator {
   display: flex;
   margin: 1em;
+}
+.indicators_wrapper {
+  display: flex;
+  justify-content: space-between;
 }
 .quiz_pokemon_image_wrapper {
   display: flex;
