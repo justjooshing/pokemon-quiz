@@ -130,6 +130,18 @@ body {
   background: var(--poke-blue);
   border: solid green 10px;
 }
+.quiz_answer_buttons_correct {
+  text-align: center;
+  padding: 1em;
+  background: green;
+  border: solid transparent 10px;
+}
+.quiz_answer_buttons_incorrect {
+  text-align: center;
+  padding: 1em;
+  background: var(--poke-red);
+  border: solid transparent 10px;
+}
 .quiz_answers_wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;

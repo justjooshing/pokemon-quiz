@@ -105,7 +105,7 @@ class App extends React.Component {
   scoreCounter = () => {
     this.setState({
       score: this.state.score +1
-    }, () => console.log(this.state.score))
+    })
   }
 
   grabAllPokemonNames = async () => {
@@ -293,6 +293,15 @@ class App extends React.Component {
               answerTopics = {this.state.answerTopics}
               roundCounter = {this.roundCounter}
               scoreCounter = {this.scoreCounter}
+              />
+          </>
+          )}
+        />
+        <Route 
+          path="/finish"
+          render={() => (
+            <>
+              <FinalPage                
               />
           </>
           )}

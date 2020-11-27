@@ -1,3 +1,4 @@
+import { lowerCase } from 'lodash';
 import React, { Component } from 'react'
 
 const capitaliseFirstLetter = (string) => {
@@ -7,16 +8,36 @@ const capitaliseFirstLetter = (string) => {
 export class AnswerButton extends Component {
 
   render() {
-    let { answer, selectedAnswer } = this.props;
+    let { answer, selectedAnswer, whichButton, correctAnswer } = this.props;
+    const lowerCaseAnswer = answer;
+    const lowerCaseSelectedAnswer = selectedAnswer.toLowerCase();
     answer = capitaliseFirstLetter(answer)
-    return (
-      <div 
-        className={answer===selectedAnswer ? "quiz_answer_buttons_selected" : "quiz_answer_buttons" }
-        onClick={() => this.props.isSelected(answer)
-        }>
-        {answer}
-      </div>
-    )
+
+    if (whichButton === "next") {
+      return (
+        <div 
+          className={
+            lowerCaseAnswer === correctAnswer ? 
+            "quiz_answer_buttons_correct" 
+            : (lowerCaseAnswer === lowerCaseSelectedAnswer) && (lowerCaseAnswer !== correctAnswer) ? "quiz_answer_buttons_incorrect"
+            : "quiz_answer_buttons"
+          }
+          >
+          {answer}
+        </div>
+      )
+    } else {
+      return (
+        <div 
+          className={
+            lowerCaseAnswer === lowerCaseSelectedAnswer ? "quiz_answer_buttons_selected" : 
+            "quiz_answer_buttons" }
+          onClick={() => this.props.isSelected(answer)
+          }>
+          {answer}
+        </div>
+      )
+    } 
   }
 }
 

@@ -4,15 +4,17 @@ import AnswerButton from "./AnswerButton/AnswerButton"
 export class AnswersWrapper extends Component {
 
   render() {
-  const {answers} = this.props;
+  const {answers, isSelected, selectedAnswer, whichButton, correctAnswer} = this.props;
     return (
       <div className="quiz_answers_wrapper">
         {answers.map(answer => 
         <AnswerButton 
           key = {answers.indexOf(answer)}
           answer = {answer}
-          isSelected = {this.props.isSelected}
-          selectedAnswer={this.props.selectedAnswer}
+          isSelected = {isSelected}
+          selectedAnswer={selectedAnswer}
+          whichButton={whichButton}
+          correctAnswer={correctAnswer}
         />
         ) 
       }

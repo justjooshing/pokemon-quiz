@@ -6,7 +6,8 @@ import ConfirmNextWrapper from "./confirm_next_wrapper/ConfirmNextWrapper"
 export class AnswersConfirmWrapper extends Component {
   state = {
     selectedAnswer: "",
-    whichButton: "skip"
+    whichButton: "skip",
+    correctAnswer: this.props.pokemon[this.props.topics]
   }
 
   checkAnswer = () => {
@@ -14,21 +15,20 @@ export class AnswersConfirmWrapper extends Component {
     const givenAnswer = this.state.selectedAnswer.toLowerCase();
     
     //topics will either be "name" or "type"
-    const answerToCompare = this.props.pokemon[this.props.topics];
-    if (givenAnswer === answerToCompare) {
-      this.props.scoreCounter()
-      console.log("correct")
-    } else (console.log("incorrect"));
+    const correctAnswer = this.props.pokemon[this.props.topics];
+    if (givenAnswer === correctAnswer) {
+      this.props.scoreCounter()}
 
     this.setState({
-      whichButton: "next"
+      whichButton: "next",
+      correctAnswer
     })
   }
 
   nextQuestion = () => {
     if (this.props.round < 9) {
       this.props.roundCounter()
-    } else {console.log("yoyoyoyo")}
+    } else {console.log("Out of questions/End of quiz")}
 
     //Reset selection option border class
     () => this.state.isSelected("");
@@ -43,7 +43,7 @@ export class AnswersConfirmWrapper extends Component {
     this.setState({
       selectedAnswer: answer,
       whichButton: "confirm"
-    }, () => console.log(this.state.selectedAnswer))
+    })
   }
 
   render() {    
@@ -53,6 +53,8 @@ export class AnswersConfirmWrapper extends Component {
           answers = {this.props.answers}
           isSelected = {this.isSelected}
           selectedAnswer={this.state.selectedAnswer}
+          whichButton={this.state.whichButton}
+          correctAnswer={this.state.correctAnswer}
         />
         <ConfirmNextWrapper 
           whichButton={this.state.whichButton}
