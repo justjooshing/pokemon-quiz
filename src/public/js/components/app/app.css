@@ -1,6 +1,5 @@
 body {
   position: relative;
   background-color: var(--poke-yellow);
-  min-height: 100vh;
   font-family: var(--secondary-text-font);
 }
