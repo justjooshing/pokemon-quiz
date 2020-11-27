@@ -1,7 +1,8 @@
 .quiz_confirm_button {
-  background: red;
+  background: var(--poke-red);
   color: white;
   padding: 0.5em;
+  cursor: pointer;
 }
 
 .quiz_confirm_button_text {

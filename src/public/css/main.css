@@ -15,3 +15,6 @@
 
 /* Quiz page + modules styling */
 @import "../js/components/quiz/quiz.css";
+
+/* Final page */
+@import "../js/components/final_page/final_page.css";

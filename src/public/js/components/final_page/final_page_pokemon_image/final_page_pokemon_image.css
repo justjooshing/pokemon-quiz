@@ -1,0 +1,8 @@
+.final_page_image {
+  margin: 1em;
+}
+
+.final_page_image_wrapper {
+  display: flex;
+  place-content: center;
+}

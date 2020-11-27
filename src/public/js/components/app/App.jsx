@@ -6,7 +6,10 @@ import Subheading from "../intro/subheading/Subheading"
 import Modes from "../intro/modes/Modes"
 
 import InstructionsPage from "../instructions_page/InstructionsPage"
+
 import Quiz from "../quiz/Quiz";
+
+import FinalPage from "../final_page/FinalPage"
 
 class App extends React.Component {
   state = {
@@ -252,6 +255,14 @@ class App extends React.Component {
     return array;
   }
   
+  startOver = () => {
+    this.setState({
+      setMode: "",
+      round: 0,
+      score: 0
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -272,20 +283,17 @@ class App extends React.Component {
         <Route 
           path="/instructions"
           render={() => (
-            <>
               <InstructionsPage 
                 setMode={this.state.setMode} 
                 modes={this.state.modes} 
                 generatePossibleAnswers={this.generatePossibleAnswers}
                 pokemonSet={this.state.pokemonSet}
               />
-          </>
           )}
         />
         <Route 
           path="/quiz"
           render={() => (
-            <>
               <Quiz 
               setMode = {this.state.setMode} 
               modes = {this.state.modes} 
@@ -297,14 +305,15 @@ class App extends React.Component {
               roundCounter = {this.roundCounter}
               scoreCounter = {this.scoreCounter}
               />
-          </>
           )}
         />
         <Route 
-          path="/finish"
+          path="/finished"
           render={() => (
             <>
-              <FinalPage                
+              <FinalPage   
+              score = {this.state.score}   
+              startOver = {this.startOver}
               />
           </>
           )}
