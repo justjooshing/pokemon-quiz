@@ -32,7 +32,7 @@ body {
   font-family: var(--secondary-text-font);
   font-size: 17px;
 }
-.instructions_next_button {
+.instructions_continue_button {
   display: flex;
   place-content: center;
   color: #fff;
@@ -41,7 +41,7 @@ body {
   margin: 1em 2em;
   text-decoration: none;
 }
-.instructions_next_button_text {
+.instructions_continue_button_text {
   padding-bottom: 5px;
   font-family: var(--main-text-font);
   font-weight: lighter;

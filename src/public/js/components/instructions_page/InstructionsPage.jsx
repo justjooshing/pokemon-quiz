@@ -1,5 +1,5 @@
 import React  from "react"
-import NextButton  from "./next_button/NextButton"
+import InstructionsContinueButton  from "./continue_button/InstructionsContinueButton"
 import Instructions  from "./instructions/Instructions"
 import ModeIndicator  from "../mode_indicator/ModeIndicator"
 import PropTypes  from "prop-types"
@@ -10,7 +10,7 @@ class InstructionsPage extends React.Component {
       <>
         <ModeIndicator setMode={this.props.setMode} modes={this.props.modes}/>
         <Instructions setMode={this.props.setMode} modes={this.props.modes}/>
-        <NextButton 
+        <InstructionsContinueButton 
           generatePossibleAnswers={this.props.generatePossibleAnswers} 
         />
       </>
