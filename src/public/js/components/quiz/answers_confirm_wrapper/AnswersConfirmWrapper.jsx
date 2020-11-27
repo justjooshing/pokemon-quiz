@@ -30,12 +30,10 @@ export class AnswersConfirmWrapper extends Component {
       this.props.roundCounter()
     } else {console.log("Out of questions/End of quiz")}
 
-    //Reset selection option border class
-    () => this.state.isSelected("");
-
-    //setState for next question
+    //setState for next question and reset "selectedAnswer"
     this.setState({
-      whichButton: "skip"
+      whichButton: "skip",
+      selectedAnswer: ""
     })
   }
   
