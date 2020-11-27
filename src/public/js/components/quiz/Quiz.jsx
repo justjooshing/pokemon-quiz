@@ -12,28 +12,35 @@ class Quiz extends React.Component {
     let pokemon = questionSet[round];
     const answers = answerSets[round];
 
-    return (
-      <div>
-        <Indicators 
-          round={round}
-          setMode={setMode} 
-          modes={modes}
-        />
-        <PokemonImage pokemon={pokemon}/>
-        <Question
-          topic={answerTopics[round]}
-        />
-        <AnswersConfirmWrapper
-          score={score}
-          scoreCounter={scoreCounter}
-          pokemon={pokemon}
-          answers={answers}
-          topics={answerTopics[round]}
-          round={round}
-          roundCounter={roundCounter}
-        />
-      </div>
-    );
+    if (setMode === "easy") {
+      return (
+        <div>
+          <Indicators 
+            round={round}
+            setMode={setMode} 
+            modes={modes}
+          />
+          <PokemonImage pokemon={pokemon}/>
+          <Question
+            topic={answerTopics[round]}
+          />
+          <AnswersConfirmWrapper
+            score={score}
+            scoreCounter={scoreCounter}
+            pokemon={pokemon}
+            answers={answers}
+            topics={answerTopics[round]}
+            round={round}
+            roundCounter={roundCounter}
+          />
+        </div>
+      )
+    }
+    if (setMode === "hard") {
+      return (
+        <h1>coming soon</h1>
+      )
+    }
   }
 }
 
