@@ -10,11 +10,13 @@ export class AnswersConfirmWrapper extends Component {
   }
 
   checkAnswer = () => {
+
     const givenAnswer = this.state.selectedAnswer.toLowerCase();
     
     //topics will either be "name" or "type"
     const answerToCompare = this.props.pokemon[this.props.topics];
     if (givenAnswer === answerToCompare) {
+      this.props.scoreCounter()
       console.log("correct")
     } else (console.log("incorrect"));
 
