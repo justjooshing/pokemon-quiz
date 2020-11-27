@@ -28,7 +28,7 @@ export class AnswersConfirmWrapper extends Component {
   nextQuestion = () => {
     if (this.props.round < 9) {
       this.props.roundCounter()
-    } else {console.log("Out of questions/End of quiz")}
+    } else { console.log("Out of questions/End of quiz", this.props.round, this.props.score) }
 
     //setState for next question and reset "selectedAnswer"
     this.setState({

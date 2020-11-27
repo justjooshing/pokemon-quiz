@@ -8,7 +8,7 @@
   text-decoration: none;
 }
 
-.instructions_next_button__words {
+.instructions_next_button_text {
   padding-bottom: 5px;
   font-family: var(--main-text-font);
   font-weight: lighter;

@@ -227,9 +227,11 @@ class App extends React.Component {
       generateAnswerSets(selectedPokemon);
     })
 
+    answerSets.forEach(roundOptions => this.shuffle(roundOptions))
+
     this.setState({
       answerTopics, answerSets
-    }, () => answerSets.forEach(roundOptions => this.shuffle(roundOptions)))
+    })
   }
 
   shuffle = (array) => {
@@ -288,6 +290,7 @@ class App extends React.Component {
               setMode = {this.state.setMode} 
               modes = {this.state.modes} 
               round = {this.state.round}
+              score = {this.state.score}
               questionSet = {this.state.questionSet}
               answerSets = {this.state.answerSets}
               answerTopics = {this.state.answerTopics}

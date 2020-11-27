@@ -8,7 +8,7 @@ function NextButton(props) {
         to="../quiz/Quiz" 
         className="instructions_next_button" 
         onClick={() => props.generatePossibleAnswers()}
-        ><h2 className="instructions_next_button__words">CONTINUE</h2>
+        ><h2 className="instructions_next_button_text">CONTINUE</h2>
       </Link>
     </>
   );

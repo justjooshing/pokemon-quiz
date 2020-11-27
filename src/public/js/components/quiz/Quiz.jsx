@@ -8,7 +8,7 @@ import AnswersConfirmWrapper from "./answers_confirm_wrapper/AnswersConfirmWrapp
 
 class Quiz extends React.Component {
   render() {
-    const {setMode, modes, questionSet , round, answerTopics, answerSets, roundCounter, scoreCounter} = this.props;
+    const {setMode, modes, questionSet, score, round, answerTopics, answerSets, roundCounter, scoreCounter} = this.props;
     let pokemon = questionSet[round];
     const answers = answerSets[round];
 
@@ -24,6 +24,7 @@ class Quiz extends React.Component {
           topic={answerTopics[round]}
         />
         <AnswersConfirmWrapper
+          score={score}
           scoreCounter={scoreCounter}
           pokemon={pokemon}
           answers={answers}
