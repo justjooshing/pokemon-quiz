@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import Indicators from "./indicators/Indicators";
 import PokemonImage from "./pokemon_image/PokemonImage";
+import Easy from "./easy_mode/EasyMode.jsx"
 import Question from "./question/Question"
-import AnswersConfirmWrapper from "./answers_confirm_wrapper/AnswersConfirmWrapper"
 
 class Quiz extends React.Component {
   render() {
@@ -20,19 +20,22 @@ class Quiz extends React.Component {
             setMode={setMode} 
             modes={modes}
           />
-          <PokemonImage pokemon={pokemon}/>
           <Question
             topic={answerTopics[round]}
           />
-          <AnswersConfirmWrapper
+          <PokemonImage pokemon={pokemon}/>
+          {setMode === "easy" ? 
+          ( <Easy
+            questionSet={questionSet}
             score={score}
-            scoreCounter={scoreCounter}
-            pokemon={pokemon}
-            answers={answers}
-            topics={answerTopics[round]}
             round={round}
+            answerTopics={answerTopics}
+            answerSets={answerSets}
             roundCounter={roundCounter}
-          />
+            scoreCounter={scoreCounter}
+          />) : 
+          (<Hard/>)}      
+          
         </div>
       )
     }

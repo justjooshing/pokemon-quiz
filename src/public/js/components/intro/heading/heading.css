@@ -1,6 +1,6 @@
 .heading_wrapper {
   background-color: var(--poke-blue);
-  padding: 2em;
+  padding: 2em 0em;
   margin: 1em;
   display: flex;
   flex-direction: column;
@@ -8,9 +8,9 @@
 }
 
 .heading_title_images {
-  width: 80vw;
+  width: 52vw;
 }
 
 .heading_title_quiz {
-  width: 42vw;
+  width: 26vw;
 }
