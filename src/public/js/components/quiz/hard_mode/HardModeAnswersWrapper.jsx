@@ -5,34 +5,50 @@ import HardConfirmButton from "./hard_confirm_button/HardConfirmButton";
 export class HardMode extends Component {
   state = {
     whichButton: "skip",
+    tempSubmittedAnswer: "",
     submittedAnswer: "",
     correctAnswer: this.props.pokemon[this.props.topic]
   }
 
-  submittedAnswer = (e) => {
+  updateSubmittedAnswer = (e) => {
     let inputAnswer = e.target.value;
     inputAnswer = inputAnswer.toLowerCase()
     this.setState({
-      submittedAnswer: inputAnswer
+      tempSubmittedAnswer: inputAnswer
+    }, () => {
+      if (this.state.tempSubmittedAnswer) {
+        this.setState({
+          whichButton: "confirm"
+        })
+      } else {
+        this.setState({
+          whichButton: "skip"
+        })
+      }
     })
-    if (this.state.submittedAnswer) {
+  }
+
+  checkAnswer = () => {
+    this.setState({
+      submittedAnswer: this.state.tempSubmittedAnswer
+    }, () => {
+      this.state.submittedAnswer === this.state.correctAnswer ? console.log('yeah boi') : console.log("nah soz");
+      this.props.roundCounter();
       this.setState({
-        whichButton: "next"
       })
-    } else {
-      this.setState({
-        whichButton: "skip"
-      })
-    }
+    })
   }
 
   render() {
     return (
       <>
         <AnswerField
-        submittedAnswer={this.submittedAnswer}/>
+          updateSubmittedAnswer={this.updateSubmittedAnswer}
+        />
         <HardConfirmButton
-        whichButton = {this.state.whichButton}/>
+          whichButton = {this.state.whichButton}
+          checkAnswer = {this.checkAnswer}
+        />
       </>
     )
   }
