@@ -11,7 +11,7 @@ export class AnswersConfirmWrapper extends Component {
     correctAnswer: this.props.pokemon[this.props.topics]
   }
 
-  checkAnswer = (e) => {
+  checkAnswer = () => {
     const {selectedAnswer} = this.state;
     
     //topics will either be "name" or "type"

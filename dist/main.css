@@ -51,7 +51,15 @@ body {
   background-color: var(--poke-blue);
   padding: 2em;
   margin: 1em;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+.heading_title_images {
+  width: 80vw;
+}
+.heading_title_quiz {
+  width: 42vw;
 }
 .subheading_text {
   margin: 1em 2em;
@@ -172,6 +180,7 @@ body {
 }
 .final_page_image {
   margin: 1em;
+  width: 90vw;
 }
 .final_page_image_wrapper {
   display: flex;

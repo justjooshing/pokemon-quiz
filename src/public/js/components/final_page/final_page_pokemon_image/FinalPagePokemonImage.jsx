@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
+import pokemonImage from "../../../../../images/final_page/pokemon_ash_final_page_image.jpg"
 
 export class FinalPagePokemonImage extends Component {
   render() {
     return (
       <div className="final_page_image_wrapper">
-        
-        {/* need to figure out how to pull in local images */}
-        <img className="final_page_image" src={"https://pbs.twimg.com/profile_images/1261915181615132674/768bqBqX_400x400.jpg"} alt=""/>
+        <img className="final_page_image" src={pokemonImage} alt="ash from pokemon success image"/>
       </div>
     )
   }
