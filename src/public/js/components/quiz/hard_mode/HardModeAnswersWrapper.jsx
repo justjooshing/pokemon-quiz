@@ -1,57 +1,23 @@
 import React, { Component } from 'react'
-import AnswerField from "./answer_field/AnswerField";
-import HardConfirmButton from "./hard_confirm_button/HardConfirmButton";
+import AnswerConfirmWrapper from './answer_confirm_wrapper/AnswerConfirmWrapper'
 
-export class HardMode extends Component {
-  state = {
-    whichButton: "skip",
-    tempSubmittedAnswer: "",
-    submittedAnswer: "",
-    correctAnswer: this.props.pokemon[this.props.topic]
-  }
 
-  updateSubmittedAnswer = (e) => {
-    let inputAnswer = e.target.value;
-    inputAnswer = inputAnswer.toLowerCase()
-    this.setState({
-      tempSubmittedAnswer: inputAnswer
-    }, () => {
-      if (this.state.tempSubmittedAnswer) {
-        this.setState({
-          whichButton: "confirm"
-        })
-      } else {
-        this.setState({
-          whichButton: "skip"
-        })
-      }
-    })
-  }
-
-  checkAnswer = () => {
-    this.setState({
-      submittedAnswer: this.state.tempSubmittedAnswer
-    }, () => {
-      this.state.submittedAnswer === this.state.correctAnswer ? console.log('yeah boi') : console.log("nah soz");
-      this.props.roundCounter();
-      this.setState({
-      })
-    })
-  }
-
+export class HardModeAnswersWrapper extends Component {
+    
   render() {
+    const {round, pokemon, answerTopics, roundCounter, scoreCounter} = this.props
+    const topics = answerTopics[round];
+
     return (
-      <>
-        <AnswerField
-          updateSubmittedAnswer={this.updateSubmittedAnswer}
-        />
-        <HardConfirmButton
-          whichButton = {this.state.whichButton}
-          checkAnswer = {this.checkAnswer}
-        />
-      </>
+      <AnswerConfirmWrapper 
+      round={round}
+      topics = {topics}
+      pokemon = {pokemon}
+      roundCounter = {roundCounter}
+      scoreCounter = {scoreCounter}
+      />
     )
   }
 }
 
-export default HardMode
+export default HardModeAnswersWrapper

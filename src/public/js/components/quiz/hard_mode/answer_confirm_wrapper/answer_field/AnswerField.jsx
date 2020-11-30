@@ -10,6 +10,7 @@ export class AnswerField extends Component {
       <>
         <TypeDirective/>
         <AnswerInput
+        tempSubmittedAnswer = {this.props.tempSubmittedAnswer}
         updateSubmittedAnswer={this.props.updateSubmittedAnswer}/>
         {/* <CorrectAnswer/> */}
       </>

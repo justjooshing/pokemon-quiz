@@ -36,9 +36,11 @@ class Quiz extends React.Component {
           scoreCounter={scoreCounter}
         />) : 
         (<HardModeAnswerWrapper
+          round={round}
           pokemon={pokemon}
-          topic={topic}
+          answerTopics={answerTopics}
           roundCounter={roundCounter}
+          scoreCounter={scoreCounter}
           />)}      
       </div>
     )

@@ -1,2 +1,1 @@
-@import "answer_field/answer_field.css";
-@import "hard_confirm_button/hard_confirm_button.css";
+@import "./answer_confirm_wrapper/answer_confirm_wrapper.css";

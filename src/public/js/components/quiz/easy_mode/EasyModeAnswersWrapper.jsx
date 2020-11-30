@@ -3,7 +3,6 @@ import AnswersConfirmWrapper from "./answers_confirm_wrapper/AnswersConfirmWrapp
 
 export class EasyMode extends Component {
   render() {
-
     const {score, round, answerTopics, answerSets, roundCounter, scoreCounter, pokemon} = this.props;
     const answers = answerSets[round];
     const topics = answerTopics[round];

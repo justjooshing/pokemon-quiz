@@ -17,8 +17,8 @@ export class AnswersConfirmWrapper extends Component {
     //topics will either be "name" or "type"
     const correctAnswer = this.props.pokemon[this.props.topics];
     if (selectedAnswer === correctAnswer) {
-      this.props.scoreCounter()}
-
+      this.props.scoreCounter()
+    }
     this.setState({
       whichButton: "next",
       correctAnswer
