@@ -11,7 +11,8 @@ import HardModeAnswerWrapper from "./hard_mode/HardModeAnswersWrapper.jsx"
 class Quiz extends React.Component {
   render() {
     const {setMode, modes, questionSet, score, round, answerTopics, answerSets, roundCounter, scoreCounter, startOver} = this.props;
-    let pokemon = questionSet[round];
+    const pokemon = questionSet[round];
+    const topic = answerTopics[round]
     return (
       <div>
         <Indicators 
@@ -22,7 +23,7 @@ class Quiz extends React.Component {
         />
         <PokemonImage pokemon={pokemon}/>
         <Question
-          topic={answerTopics[round]}
+          topic={topic}
         />
         {setMode === "easy" ? 
         ( <EasyModeAnswerWrapper
@@ -36,6 +37,7 @@ class Quiz extends React.Component {
         />) : 
         (<HardModeAnswerWrapper
           pokemon={pokemon}
+          topic={topic}
           />)}      
       </div>
     )

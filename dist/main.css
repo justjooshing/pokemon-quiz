@@ -183,6 +183,30 @@ body {
   font-size: 0.8em;
   text-align: center;
 }
+.answer_input_wrapper {
+  display: flex;
+  place-content: center;
+}
+.answer_input {
+  padding: 0.5em;
+  margin: 0em 1em;
+  color: black;
+}
+.quiz_confirm_button {
+  background: var(--poke-red);
+  color: white;
+  padding: 0.5em;
+  cursor: pointer;
+}
+.quiz_confirm_button_text {
+  font-family: var(--main-text-font);
+  animation: blink 1.5s infinite;
+}
+.quiz_confirm_next_wrapper {
+  display: flex;
+  padding: 1em;
+  justify-content: flex-end;
+}
 /* Final page */
 .final_page_score {
   display: flex;

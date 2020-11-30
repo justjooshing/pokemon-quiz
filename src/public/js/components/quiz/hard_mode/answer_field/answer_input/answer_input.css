@@ -1,0 +1,10 @@
+.answer_input_wrapper {
+  display: flex;
+  place-content: center;
+}
+
+.answer_input {
+  padding: 0.5em;
+  margin: 0em 1em;
+  color: black;
+}

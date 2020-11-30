@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import TypeDirective from "./type_directive/TypeDirective";
+import AnswerInput from "./answer_input/AnswerInput"
 
 
 export class AnswerField extends Component {
@@ -8,8 +9,9 @@ export class AnswerField extends Component {
     return (
       <>
         <TypeDirective/>
-        {/* <AnswerInput/>
-        <CorrectAnswer/> */}
+        <AnswerInput
+        submittedAnswer={this.props.submittedAnswer}/>
+        {/* <CorrectAnswer/> */}
       </>
     )
   }
