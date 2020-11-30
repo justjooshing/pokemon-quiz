@@ -11,8 +11,7 @@ export class AnswersConfirmWrapper extends Component {
     correctAnswer: this.props.pokemon[this.props.topics]
   }
 
-  checkAnswer = () => {
-
+  checkAnswer = (e) => {
     const {selectedAnswer} = this.state;
     
     //topics will either be "name" or "type"
@@ -49,7 +48,7 @@ export class AnswersConfirmWrapper extends Component {
 
   render() {    
     return (
-      <div>
+      <form>
         <AnswersWrapper
           answers = {this.props.answers}
           isSelected = {this.isSelected}
@@ -63,7 +62,7 @@ export class AnswersConfirmWrapper extends Component {
           nextQuestion={this.nextQuestion}
           skipQuestion={this.skipQuestion}
           />
-      </div>
+      </form>
     )
   }
 }

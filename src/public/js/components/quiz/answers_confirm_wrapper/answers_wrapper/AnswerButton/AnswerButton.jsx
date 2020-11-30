@@ -14,7 +14,7 @@ export class AnswerButton extends Component {
 
     if (whichButton === "next") {
       return (
-        <div 
+        <button type="button" 
           className={
             answer === correctAnswer ? 
             "quiz_answer_buttons_correct" 
@@ -23,18 +23,18 @@ export class AnswerButton extends Component {
           }
           >
           {upperCaseAnswer}
-        </div>
+        </button>
       )
     } else {
       return (
-        <div 
+        <button type="button" 
           className={
             answer === lowerCaseSelectedAnswer ? "quiz_answer_buttons_selected" : 
             "quiz_answer_buttons" }
           onClick={() => this.props.isSelected(answer)
           }>
           {upperCaseAnswer}
-        </div>
+        </button>
       )
     } 
   }
