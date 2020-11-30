@@ -178,6 +178,11 @@ body {
   padding: 1em;
   justify-content: flex-end;
 }
+.type_directive {
+  padding: 0.5em 0em;
+  font-size: 0.8em;
+  text-align: center;
+}
 /* Final page */
 .final_page_score {
   display: flex;
@@ -206,11 +211,11 @@ body {
 }
 .start_over_button {
   background: var(--poke-red);
-  color: white;
   cursor: pointer;
   padding: 0.5em;
 }
 .start_over_button_text {
   font-family: var(--main-text-font);
+  color: white;
   animation: blink 1.5s infinite;
 }

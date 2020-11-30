@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import AnswersConfirmWrapper from "./answers_confirm_wrapper/AnswersConfirmWrapper"
 
-export class Easy extends Component {
+export class EasyMode extends Component {
   render() {
 
-    const {questionSet, score, round, answerTopics, answerSets, roundCounter, scoreCounter} = this.props;
-    let pokemon = questionSet[round];
+    const {score, round, answerTopics, answerSets, roundCounter, scoreCounter, pokemon} = this.props;
     const answers = answerSets[round];
 
     return (
@@ -22,4 +21,4 @@ export class Easy extends Component {
   }
 }
 
-export default Easy
+export default EasyMode

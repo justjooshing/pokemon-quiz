@@ -304,6 +304,7 @@ class App extends React.Component {
               answerTopics = {this.state.answerTopics}
               roundCounter = {this.roundCounter}
               scoreCounter = {this.scoreCounter}
+              startOver = {this.startOver}
               />
           )}
         />

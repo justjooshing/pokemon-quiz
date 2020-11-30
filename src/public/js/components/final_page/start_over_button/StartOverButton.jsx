@@ -1,22 +1,17 @@
 import React, { Component } from 'react'
-import { withRouter } from "react-router"
+import { Link }  from"react-router-dom"
 
 export class StartOverButton extends Component {
-
-  goToStart = () => {
-    this.props.history.push("/")
-    this.props.startOver();
-  }
 
   render() {
     return (
       <div className="start_over_button_wrapper">
-        <div className="start_over_button">
-          <p className="start_over_button_text" onClick={() => this.goToStart()}>Start Over</p>
-        </div>
+        <Link className="start_over_button" to="/" onClick={() => this.props.startOver()}>
+          <span className="start_over_button_text">Start Over</span>
+        </Link>
       </div>
     )
   }
 }
 
-export default withRouter(StartOverButton)
+export default StartOverButton

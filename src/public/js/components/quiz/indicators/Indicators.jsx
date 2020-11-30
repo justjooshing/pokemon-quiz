@@ -13,7 +13,8 @@ class Indicators extends React.Component {
           setMode={this.props.setMode} 
           modes={this.props.modes}
         /> 
-        <TitleButton />
+        <TitleButton
+        startOver = {this.props.startOver} />
         <RoundIndicator round={this.props.round}/>
       </div>
     )

@@ -3,47 +3,42 @@ import PropTypes from "prop-types";
 
 import Indicators from "./indicators/Indicators";
 import PokemonImage from "./pokemon_image/PokemonImage";
-import Easy from "./easy_mode/EasyMode.jsx"
 import Question from "./question/Question"
+
+import EasyModeAnswerWrapper from "./easy_mode/EasyModeAnswersWrapper.jsx"
+import HardModeAnswerWrapper from "./hard_mode/HardModeAnswersWrapper.jsx"
 
 class Quiz extends React.Component {
   render() {
-    const {setMode, modes, questionSet, score, round, answerTopics, answerSets, roundCounter, scoreCounter} = this.props;
+    const {setMode, modes, questionSet, score, round, answerTopics, answerSets, roundCounter, scoreCounter, startOver} = this.props;
     let pokemon = questionSet[round];
-    const answers = answerSets[round];
-
-    if (setMode === "easy") {
-      return (
-        <div>
-          <Indicators 
-            round={round}
-            setMode={setMode} 
-            modes={modes}
-          />
-          <Question
-            topic={answerTopics[round]}
-          />
-          <PokemonImage pokemon={pokemon}/>
-          {setMode === "easy" ? 
-          ( <Easy
-            questionSet={questionSet}
-            score={score}
-            round={round}
-            answerTopics={answerTopics}
-            answerSets={answerSets}
-            roundCounter={roundCounter}
-            scoreCounter={scoreCounter}
-          />) : 
-          (<Hard/>)}      
-          
-        </div>
-      )
-    }
-    if (setMode === "hard") {
-      return (
-        <h1>coming soon</h1>
-      )
-    }
+    return (
+      <div>
+        <Indicators 
+          round={round}
+          setMode={setMode} 
+          modes={modes}
+          startOver={startOver}
+        />
+        <PokemonImage pokemon={pokemon}/>
+        <Question
+          topic={answerTopics[round]}
+        />
+        {setMode === "easy" ? 
+        ( <EasyModeAnswerWrapper
+          pokemon={pokemon}
+          score={score}
+          round={round}
+          answerTopics={answerTopics}
+          answerSets={answerSets}
+          roundCounter={roundCounter}
+          scoreCounter={scoreCounter}
+        />) : 
+        (<HardModeAnswerWrapper
+          pokemon={pokemon}
+          />)}      
+      </div>
+    )
   }
 }
 
