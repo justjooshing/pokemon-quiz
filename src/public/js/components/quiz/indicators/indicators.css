@@ -1,4 +1,5 @@
 @import "./round_indicator/round_indicator.css";
+@import "./title_button/title_button.css";
 
 .indicators_wrapper {
   display: flex;
