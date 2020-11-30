@@ -6,6 +6,7 @@ export class EasyMode extends Component {
 
     const {score, round, answerTopics, answerSets, roundCounter, scoreCounter, pokemon} = this.props;
     const answers = answerSets[round];
+    const topics = answerTopics[round];
 
     return (
       <AnswersConfirmWrapper
@@ -13,7 +14,7 @@ export class EasyMode extends Component {
       scoreCounter={scoreCounter}
       pokemon={pokemon}
       answers={answers}
-      topics={answerTopics[round]}
+      topics={topics}
       round={round}
       roundCounter={roundCounter}
     />
