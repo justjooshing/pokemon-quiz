@@ -123,6 +123,10 @@ class App extends React.Component {
       if (pokemon.name.includes("nidoran")) {
         pokemon.name = "nidoran"
       }
+      //remove hyphen from mr mime      
+      if (pokemon.name === "mr-mime") {
+        pokemon.name = "mr mime"
+      }
       allPokemonNames.push(pokemon.name)
     })
 
@@ -152,6 +156,10 @@ class App extends React.Component {
       //remove the female and male tags from the nidoran names
       if (pokemon.name.includes("nidoran")) {
         pokemon.name = "nidoran"
+      }
+      //remove hypen from mr mime
+      if (pokemon.name === "mr-mime") {
+        pokemon.name = "mr mime"
       }
 
       //Grab, assign and join type
