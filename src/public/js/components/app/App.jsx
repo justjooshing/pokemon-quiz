@@ -315,6 +315,7 @@ class App extends React.Component {
               <FinalPage   
               score = {this.state.score}   
               startOver = {this.startOver}
+              setMode = {this.state.setMode}
               />
           </>
           )}

@@ -71,7 +71,7 @@ export class AnswerConfirmWrapper extends Component {
   
   render() {
     return (
-      <>
+      <form>
         <AnswerField
           tempSubmittedAnswer = {this.state.tempSubmittedAnswer}
           updateSubmittedAnswer={this.updateSubmittedAnswer}
@@ -84,7 +84,7 @@ export class AnswerConfirmWrapper extends Component {
           checkAnswer = {this.checkAnswer}
           nextQuestion = {this.nextQuestion}
         />
-      </>
+      </form>
     )
   }
 }

@@ -6,13 +6,19 @@ import StartOverButton from "./start_over_button/StartOverButton";
 
 export class FinalPage extends Component {
   render() {
+    const { score } = this.props
     return (
       <div>
         <FinalPageScore
-          score = {this.props.score}
+          score = {score}
         />
-        <FinalPagePokemonImage />
-        <FinalPageText />
+        <FinalPagePokemonImage 
+          score = {score}
+        />
+        <FinalPageText 
+          setMode = {this.props.setMode}
+          score = {score}
+          />
         <StartOverButton 
           startOver = {this.props.startOver}
         />
