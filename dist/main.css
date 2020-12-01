@@ -186,6 +186,7 @@ body {
   padding: 0.5em 0em;
   font-size: 0.8em;
   position: absolute;
+  align-self: center;
 }
 .answer_input {
   padding: 0.5em;
@@ -234,6 +235,8 @@ body {
 .answer_confirm_wrapper {
   display: flex;
   flex-direction: column;
+  position: relative;
+  width: 100%;
 }
 /* Final page */
 .final_page_score {

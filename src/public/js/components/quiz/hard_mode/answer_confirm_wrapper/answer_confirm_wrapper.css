@@ -4,4 +4,6 @@
 .answer_confirm_wrapper {
   display: flex;
   flex-direction: column;
+  position: relative;
+  width: 100%;
 }
