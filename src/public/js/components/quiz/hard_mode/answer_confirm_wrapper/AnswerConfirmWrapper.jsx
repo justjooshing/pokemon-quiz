@@ -71,7 +71,7 @@ export class AnswerConfirmWrapper extends Component {
   
   render() {
     return (
-      <form>
+      <form className="answer_confirm_wrapper">
         <AnswerField
           topic = {this.props.topic}
           tempSubmittedAnswer = {this.state.tempSubmittedAnswer}

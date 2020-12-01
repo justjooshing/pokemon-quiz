@@ -17,6 +17,7 @@ body {
   position: relative;
   background-color: var(--poke-yellow);
   font-family: var(--secondary-text-font);
+  max-width: 425px;
 }
 /* Instructions page + modules styling */
 .instructions_wrapper {
@@ -56,9 +57,11 @@ body {
   place-items: center;
 }
 .heading_title_images {
+  max-width: 221px;
   width: 52vw;
 }
 .heading_title_quiz {
+  max-width: 110.5px;
   width: 26vw;
 }
 .subheading_text {
@@ -182,7 +185,7 @@ body {
 .type_directive {
   padding: 0.5em 0em;
   font-size: 0.8em;
-  text-align: center;
+  position: absolute;
 }
 .answer_input {
   padding: 0.5em;
@@ -209,9 +212,9 @@ body {
   font-size: 0.8em;
 }
 .answer_input_wrapper {
+  padding-top: 30px;
   margin: 0em 5em;
   font-family: var(--secondary-text-font);
-  position: relative;
 }
 .quiz_confirm_button {
   background: var(--poke-red);
@@ -227,6 +230,10 @@ body {
   display: flex;
   padding: 1em;
   justify-content: flex-end;
+}
+.answer_confirm_wrapper {
+  display: flex;
+  flex-direction: column;
 }
 /* Final page */
 .final_page_score {

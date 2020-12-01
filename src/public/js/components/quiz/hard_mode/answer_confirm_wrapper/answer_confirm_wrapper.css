@@ -1,2 +1,7 @@
 @import "answer_field/answer_field.css";
 @import "hard_confirm_button/hard_confirm_button.css";
+
+.answer_confirm_wrapper {
+  display: flex;
+  flex-direction: column;
+}
