@@ -12,11 +12,11 @@ export class AnswerInput extends Component {
             (whichButton === "next" && correctAnswer === submittedAnswer) ? "answer_input_correct" :
             whichButton === "next" ? "answer_input_incorrect" : 
             "answer_input"} 
-            id="submittedAnswer" 
-            placeholder="Your answer here..." 
-            value={tempSubmittedAnswer} 
-            onChange={updateSubmittedAnswer}
-          />
+          id="submittedAnswer" 
+          placeholder="Your answer here..." 
+          value={tempSubmittedAnswer} 
+          onChange={updateSubmittedAnswer}
+        />
       </div>
     )
   }

@@ -13,7 +13,6 @@ export class AnswerConfirmWrapper extends Component {
   }
 
   updateSubmittedAnswer = (e) => {
-
     let inputAnswer = e.target.value;
     inputAnswer = inputAnswer.toLowerCase()
     this.setState({
@@ -71,7 +70,7 @@ export class AnswerConfirmWrapper extends Component {
   
   render() {
     return (
-      <form className="answer_confirm_wrapper">
+      <form className="answer_confirm_wrapper" onSubmit={(e) => e.preventDefault()}>
         <AnswerField
           topic = {this.props.topic}
           tempSubmittedAnswer = {this.state.tempSubmittedAnswer}
