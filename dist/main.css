@@ -117,12 +117,16 @@ body {
   display: flex;
   margin: 1em;
   text-decoration: none;
-  color: black;
+  color: white;
   text-align: center;
+  background: var(--poke-blue);
+  border-radius: 20px;
+  padding: 10px;
 }
 .indicators_wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .quiz_pokemon_image_wrapper {
   display: flex;
