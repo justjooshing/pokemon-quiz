@@ -3,7 +3,7 @@
 @import "./correct_answer/correct_answer.css";
 
 .answer_input_wrapper {
-  margin-left: 0em 5em;
+  margin: 0em 5em;
   font-family: var(--secondary-text-font);
   position: relative;
 }
