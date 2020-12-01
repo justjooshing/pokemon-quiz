@@ -6,12 +6,12 @@ export class HardModeAnswersWrapper extends Component {
     
   render() {
     const {round, pokemon, answerTopics, roundCounter, scoreCounter} = this.props
-    const topics = answerTopics[round];
+    const topic = answerTopics[round];
 
     return (
       <AnswerConfirmWrapper 
       round={round}
-      topics = {topics}
+      topic = {topic}
       pokemon = {pokemon}
       roundCounter = {roundCounter}
       scoreCounter = {scoreCounter}

@@ -10,8 +10,12 @@ export class AnswerField extends Component {
       <>
         <TypeDirective/>
         <AnswerInput
-        tempSubmittedAnswer = {this.props.tempSubmittedAnswer}
-        updateSubmittedAnswer={this.props.updateSubmittedAnswer}/>
+          whichButton = {this.props.whichButton}
+          correctAnswer = {this.props.correctAnswer}
+          tempSubmittedAnswer = {this.props.tempSubmittedAnswer}
+          updateSubmittedAnswer={this.props.updateSubmittedAnswer}
+          submittedAnswer = {this.props.submittedAnswer}  
+        />
         {/* <CorrectAnswer/> */}
       </>
     )

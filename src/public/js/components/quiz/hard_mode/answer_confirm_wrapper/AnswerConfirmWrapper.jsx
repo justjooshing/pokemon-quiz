@@ -9,16 +9,21 @@ export class AnswerConfirmWrapper extends Component {
     whichButton: "skip",
     tempSubmittedAnswer: "",
     submittedAnswer: "",
-    correctAnswer: this.props.pokemon[this.props.topics]
+    correctAnswer: this.props.pokemon[this.props.topic]
   }
 
   updateSubmittedAnswer = (e) => {
+
     let inputAnswer = e.target.value;
     inputAnswer = inputAnswer.toLowerCase()
     this.setState({
       tempSubmittedAnswer: inputAnswer
     }, () => {
-      if (this.state.tempSubmittedAnswer) {
+      if (this.state.submittedAnswer) {
+        this.setState({
+          whichButton: "next"
+        })
+      } else if (this.state.tempSubmittedAnswer) {
         this.setState({
           whichButton: "confirm"
         })
@@ -34,17 +39,19 @@ export class AnswerConfirmWrapper extends Component {
     this.setState({
       submittedAnswer: this.state.tempSubmittedAnswer
       }, () => {
-      const {submittedAnswer, correctAnswer} = this.state;
 
-      //topics will either be "name" or "type"
-        if (submittedAnswer === correctAnswer) {
-          this.props.scoreCounter();
-        }
-        this.setState({
-          whichButton: "next",
-          correctAnswer
-        })
+      const {submittedAnswer} = this.state;
+      const correctAnswer = this.props.pokemon[this.props.topic];
+
+    //topic will either be "name" or "type"
+      if (submittedAnswer === correctAnswer) {
+        this.props.scoreCounter();
+      }
+      this.setState({
+        whichButton: "next",
+        correctAnswer
       })
+    })
   }
   
   nextQuestion = () => {
@@ -53,21 +60,24 @@ export class AnswerConfirmWrapper extends Component {
     } else {
       this.props.history.push("/finished")
     }
-
+   
     //setState for next question and reset "tempSubmittedAnswer"
     this.setState({
       whichButton: "skip",
-      tempSubmittedAnswer: ""
+      tempSubmittedAnswer: "",
+      submittedAnswer: ""
     })
   }
   
-
   render() {
     return (
       <>
         <AnswerField
           tempSubmittedAnswer = {this.state.tempSubmittedAnswer}
           updateSubmittedAnswer={this.updateSubmittedAnswer}
+          submittedAnswer = {this.state.submittedAnswer}
+          whichButton = {this.state.whichButton}
+          correctAnswer = {this.state.correctAnswer}
         />
         <HardConfirmButton
           whichButton = {this.state.whichButton}

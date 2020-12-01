@@ -7,4 +7,18 @@
   padding: 0.5em;
   margin: 0em 1em;
   color: black;
+  border: transparent 0.5em solid;
+}
+
+.answer_input_correct {
+  padding: 0.5em;
+  margin: 0em 1em;
+  color: black;
+  border: green 0.5em solid;
+}
+.answer_input_incorrect {
+  padding: 0.5em;
+  margin: 0em 1em;
+  color: black;
+  border: var(--poke-red) 0.5em solid;
 }
