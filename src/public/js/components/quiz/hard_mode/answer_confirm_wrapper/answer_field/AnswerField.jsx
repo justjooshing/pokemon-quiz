@@ -7,11 +7,11 @@ import CorrectAnswer from "./correct_answer/CorrectAnswer"
 
 export class AnswerField extends Component {
   render() {
-    const {pokemon, topic, whichButton, correctAnswer, tempSubmittedAnswer, updateSubmittedAnswer, submittedAnswer} = this.props
+    const {topic, whichButton, correctAnswer, tempSubmittedAnswer, updateSubmittedAnswer, submittedAnswer} = this.props
     return (
       <>
         { (topic === "type") && <TypeDirective /> }
-
+        <div className="answer_input_wrapper">
         <AnswerInput
           whichButton = {whichButton}
           correctAnswer = {correctAnswer}
@@ -24,6 +24,7 @@ export class AnswerField extends Component {
             correctAnswer={correctAnswer}
           />
         }
+        </div>
       </>
     )
   }

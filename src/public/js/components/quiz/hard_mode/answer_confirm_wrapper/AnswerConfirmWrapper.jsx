@@ -73,7 +73,6 @@ export class AnswerConfirmWrapper extends Component {
     return (
       <form>
         <AnswerField
-          pokemon = {this.props.pokemon}
           topic = {this.props.topic}
           tempSubmittedAnswer = {this.state.tempSubmittedAnswer}
           updateSubmittedAnswer={this.updateSubmittedAnswer}

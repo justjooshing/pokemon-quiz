@@ -4,7 +4,7 @@ export class AnswerInput extends Component {
   render() {
     const {whichButton, correctAnswer, tempSubmittedAnswer, updateSubmittedAnswer, submittedAnswer} = this.props
     return (
-      <div className="answer_input_wrapper">
+      <div>
         <input 
           type="text" 
           required 

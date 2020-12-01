@@ -10,7 +10,7 @@ export class CorrectAnswer extends Component {
   correctAnswer = capitaliseFirstLetter(correctAnswer)
 
     return (
-      <div className="correct_answer_wrapper">
+      <div>
         <div className="correct_answer_text">
           {correctAnswer}
         </div>

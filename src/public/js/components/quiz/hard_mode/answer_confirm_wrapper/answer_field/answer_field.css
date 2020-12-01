@@ -1,3 +1,9 @@
 @import "./type_directive/type_directive.css";
 @import "./answer_input/answer_input.css";
 @import "./correct_answer/correct_answer.css";
+
+.answer_input_wrapper {
+  margin-left: 0em 5em;
+  font-family: var(--secondary-text-font);
+  position: relative;
+}
