@@ -12,6 +12,10 @@
   --main-text-font: "Press Start 2P";
   --secondary-text-font: "Trocchi";
 }
+html {
+  display: flex;
+  place-content: center;
+}
 /* App level styling */
 body {
   position: relative;
@@ -247,6 +251,7 @@ body {
 .final_page_image {
   margin: 1em;
   width: 90vw;
+  max-width: 324px;
 }
 .final_page_image_wrapper {
   display: flex;

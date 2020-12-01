@@ -11,3 +11,8 @@
   --main-text-font: "Press Start 2P";
   --secondary-text-font: "Trocchi";
 }
+
+html {
+  display: flex;
+  place-content: center;
+}
