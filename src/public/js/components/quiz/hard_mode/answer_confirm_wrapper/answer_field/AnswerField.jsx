@@ -7,19 +7,21 @@ import CorrectAnswer from "./correct_answer/CorrectAnswer"
 
 export class AnswerField extends Component {
   render() {
+    const {pokemon, topic, whichButton, correctAnswer, tempSubmittedAnswer, updateSubmittedAnswer, submittedAnswer} = this.props
     return (
       <>
-        <TypeDirective/>
+        { (topic === "type") && <TypeDirective /> }
+
         <AnswerInput
-          whichButton = {this.props.whichButton}
-          correctAnswer = {this.props.correctAnswer}
-          tempSubmittedAnswer = {this.props.tempSubmittedAnswer}
-          updateSubmittedAnswer={this.props.updateSubmittedAnswer}
-          submittedAnswer = {this.props.submittedAnswer}  
+          whichButton = {whichButton}
+          correctAnswer = {correctAnswer}
+          tempSubmittedAnswer = {tempSubmittedAnswer}
+          updateSubmittedAnswer={updateSubmittedAnswer}
+          submittedAnswer = {submittedAnswer}  
         />
-        { (this.props.whichButton === "next" && this.props.submittedAnswer !== this.props.correctAnswer) &&
+        { (whichButton === "next" && submittedAnswer !== correctAnswer) &&
           <CorrectAnswer
-            correctAnswer={this.props.correctAnswer}
+            correctAnswer={correctAnswer}
           />
         }
       </>
