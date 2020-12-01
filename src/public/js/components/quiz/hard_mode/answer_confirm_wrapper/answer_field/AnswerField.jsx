@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import TypeDirective from "./type_directive/TypeDirective";
 import AnswerInput from "./answer_input/AnswerInput"
+import CorrectAnswer from "./correct_answer/CorrectAnswer"
 
 
 export class AnswerField extends Component {
@@ -16,7 +17,11 @@ export class AnswerField extends Component {
           updateSubmittedAnswer={this.props.updateSubmittedAnswer}
           submittedAnswer = {this.props.submittedAnswer}  
         />
-        {/* <CorrectAnswer/> */}
+        { (this.props.whichButton === "next" && this.props.submittedAnswer !== this.props.correctAnswer) &&
+          <CorrectAnswer
+            correctAnswer={this.props.correctAnswer}
+          />
+        }
       </>
     )
   }

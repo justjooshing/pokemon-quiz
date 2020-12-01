@@ -186,24 +186,36 @@ body {
 .answer_input_wrapper {
   display: flex;
   place-content: center;
+  font-family: var(--secondary-text-font);
 }
 .answer_input {
   padding: 0.5em;
   margin: 0em 1em;
-  color: black;
   border: transparent 0.5em solid;
 }
 .answer_input_correct {
   padding: 0.5em;
   margin: 0em 1em;
-  color: black;
   border: green 0.5em solid;
 }
 .answer_input_incorrect {
   padding: 0.5em;
   margin: 0em 1em;
-  color: black;
   border: var(--poke-red) 0.5em solid;
+}
+.correct_answer_wrapper {
+  display: flex;
+  margin-left: 4.8em;
+  position: relative;
+}
+.correct_answer_text {
+  padding: 0.6em;
+  margin: 0.5em 1em;
+  border: green 0.5em solid;
+  position: absolute;
+  background-color: white;
+  font-family: var(--seconday-text-font);
+  font-size: 0.8em;
 }
 .quiz_confirm_button {
   background: var(--poke-red);
