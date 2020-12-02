@@ -284,39 +284,39 @@ class App extends React.Component {
     switch (this.state.page) {
       case "/": 
         return <>
-        <Heading />
-        <Subheading />
-        <Modes 
-          selectMode={this.selectMode} 
-          modes={this.state.modes}
-        />
-      </>
+          <Heading />
+          <Subheading />
+          <Modes 
+            selectMode={this.selectMode} 
+            modes={this.state.modes}
+          />
+         </>
       case "/instructions": 
         return <InstructionsPage 
-        setMode={this.state.setMode} 
-        modes={this.state.modes} 
-        generatePossibleAnswers={this.generatePossibleAnswers}
-        pokemonSet={this.state.pokemonSet}
-      />
+          setMode={this.state.setMode} 
+          modes={this.state.modes} 
+          generatePossibleAnswers={this.generatePossibleAnswers}
+          pokemonSet={this.state.pokemonSet}
+        />
       case "/quiz": 
         return  <Quiz 
-        setMode = {this.state.setMode} 
-        modes = {this.state.modes} 
-        round = {this.state.round}
-        score = {this.state.score}
-        questionSet = {this.state.questionSet}
-        answerSets = {this.state.answerSets}
-        answerTopics = {this.state.answerTopics}
-        roundCounter = {this.roundCounter}
-        scoreCounter = {this.scoreCounter}
-        startOver = {this.startOver}
-        endQuiz = {this.endQuiz}
+          setMode = {this.state.setMode} 
+          modes = {this.state.modes} 
+          round = {this.state.round}
+          score = {this.state.score}
+          questionSet = {this.state.questionSet}
+          answerSets = {this.state.answerSets}
+          answerTopics = {this.state.answerTopics}
+          roundCounter = {this.roundCounter}
+          scoreCounter = {this.scoreCounter}
+          startOver = {this.startOver}
+          endQuiz = {this.endQuiz}
         />
       case "/finished": 
         return <FinalPage   
-        score = {this.state.score}   
-        startOver = {this.startOver}
-        setMode = {this.state.setMode}
+          score = {this.state.score}   
+          startOver = {this.startOver}
+          setMode = {this.state.setMode}
         />
     }
   }

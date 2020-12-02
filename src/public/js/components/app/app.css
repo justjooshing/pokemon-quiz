@@ -4,3 +4,8 @@ body {
   font-family: var(--secondary-text-font);
   max-width: 425px;
 }
+
+#root {
+  display: flex;
+  flex-direction: column;
+}

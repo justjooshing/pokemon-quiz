@@ -1,11 +1,9 @@
 .instructions_continue_button {
-  display: flex;
-  place-content: center;
+  align-self: center;
   color: #fff;
   background-color: var(--poke-dark-red);
   padding: 1em;
   margin: 1em 2em;
-  text-decoration: none;
 }
 
 .instructions_continue_button_text {
