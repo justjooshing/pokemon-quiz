@@ -10,6 +10,8 @@
 
   --main-text-font: "Press Start 2P";
   --secondary-text-font: "Trocchi";
+  border-radius: 10px;
+  border: none;
 }
 
 html {

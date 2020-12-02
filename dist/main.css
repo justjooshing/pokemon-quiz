@@ -11,6 +11,8 @@
 
   --main-text-font: "Press Start 2P";
   --secondary-text-font: "Trocchi";
+  border-radius: 10px;
+  border: none;
 }
 html {
   display: flex;
@@ -180,7 +182,7 @@ body {
 .quiz_confirm_button {
   background: var(--poke-red);
   color: white;
-  padding: 0.5em;
+  padding: 0.8em;
   cursor: pointer;
 }
 .quiz_confirm_button_text {
@@ -230,7 +232,7 @@ body {
 .quiz_confirm_button {
   background: var(--poke-red);
   color: white;
-  padding: 0.5em;
+  padding: 0.8em;
   cursor: pointer;
 }
 .quiz_confirm_button_text {
@@ -278,7 +280,7 @@ body {
 .start_over_button {
   background: var(--poke-red);
   cursor: pointer;
-  padding: 0.5em;
+  padding: 0.8em;
 }
 .start_over_button_text {
   font-family: var(--main-text-font);
