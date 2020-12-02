@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { withRouter } from "react-router"
 
 import AnswersWrapper from "../answers_wrapper/AnswersWrapper"
 import ConfirmNextWrapper from "../confirm_next_wrapper/ConfirmNextWrapper"
@@ -29,7 +28,7 @@ export class AnswersConfirmWrapper extends Component {
     if (this.props.round < 9) {
       this.props.roundCounter()
     } else {
-      this.props.history.push("/finished")
+      this.props.endQuiz()
     }
 
     //setState for next question and reset "selectedAnswer"
@@ -67,6 +66,4 @@ export class AnswersConfirmWrapper extends Component {
   }
 }
 
-// Wrapping in withRouter to be able to use this.props.history
-//to redirect once we reach the last round
-export default withRouter(AnswersConfirmWrapper)
+export default AnswersConfirmWrapper

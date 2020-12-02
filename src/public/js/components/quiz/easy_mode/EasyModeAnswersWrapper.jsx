@@ -3,7 +3,7 @@ import AnswersConfirmWrapper from "./answers_confirm_wrapper/AnswersConfirmWrapp
 
 export class EasyMode extends Component {
   render() {
-    const {score, round, answerTopics, answerSets, roundCounter, scoreCounter, pokemon} = this.props;
+    const {endQuiz, score, round, answerTopics, answerSets, roundCounter, scoreCounter, pokemon} = this.props;
     const answers = answerSets[round];
     const topics = answerTopics[round];
 
@@ -16,6 +16,7 @@ export class EasyMode extends Component {
       topics={topics}
       round={round}
       roundCounter={roundCounter}
+      endQuiz = {endQuiz}
     />
     )
   }

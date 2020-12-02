@@ -10,7 +10,7 @@ import HardModeAnswerWrapper from "./hard_mode/HardModeAnswersWrapper.jsx"
 
 class Quiz extends React.Component {
   render() {
-    const {setMode, modes, questionSet, score, round, answerTopics, answerSets, roundCounter, scoreCounter, startOver} = this.props;
+    const {endQuiz, setMode, modes, questionSet, score, round, answerTopics, answerSets, roundCounter, scoreCounter, startOver} = this.props;
     const pokemon = questionSet[round];
     const topic = answerTopics[round]
     return (
@@ -34,6 +34,7 @@ class Quiz extends React.Component {
           answerSets={answerSets}
           roundCounter={roundCounter}
           scoreCounter={scoreCounter}
+          endQuiz = {endQuiz}
         />) : 
         (<HardModeAnswerWrapper
           round={round}
@@ -41,6 +42,7 @@ class Quiz extends React.Component {
           answerTopics={answerTopics}
           roundCounter={roundCounter}
           scoreCounter={scoreCounter}
+          endQuiz = {endQuiz}
           />)}      
       </div>
     )

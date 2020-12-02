@@ -5,7 +5,7 @@ import AnswerConfirmWrapper from './answer_confirm_wrapper/AnswerConfirmWrapper'
 export class HardModeAnswersWrapper extends Component {
     
   render() {
-    const {round, pokemon, answerTopics, roundCounter, scoreCounter} = this.props
+    const {endQuiz, round, pokemon, answerTopics, roundCounter, scoreCounter} = this.props
     const topic = answerTopics[round];
 
     return (
@@ -15,6 +15,7 @@ export class HardModeAnswersWrapper extends Component {
       pokemon = {pokemon}
       roundCounter = {roundCounter}
       scoreCounter = {scoreCounter}
+      endQuiz = {endQuiz}
       />
     )
   }

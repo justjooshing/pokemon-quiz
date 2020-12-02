@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { withRouter } from "react-router"
 
 import AnswerField from "./answer_field/AnswerField";
 import HardConfirmButton from "./hard_confirm_button/HardConfirmButton";
@@ -57,7 +56,7 @@ export class AnswerConfirmWrapper extends Component {
     if (this.props.round < 9) {
       this.props.roundCounter()
     } else {
-      this.props.history.push("/finished")
+      this.props.endQuiz()
     }
    
     //setState for next question and reset "tempSubmittedAnswer"
@@ -88,4 +87,4 @@ export class AnswerConfirmWrapper extends Component {
     )
   }
 }
-export default withRouter(AnswerConfirmWrapper);
+export default AnswerConfirmWrapper;

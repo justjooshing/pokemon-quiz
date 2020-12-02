@@ -1,5 +1,4 @@
-import React from 'react'
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import React from 'react';
 
 import Heading from "../intro/heading/Heading"
 import Subheading from "../intro/subheading/Subheading"
@@ -13,6 +12,7 @@ import FinalPage from "../final_page/FinalPage"
 
 class App extends React.Component {
   state = {
+    page: "/",
     setMode: "",
     round: 0,
     score: 0,
@@ -94,7 +94,8 @@ class App extends React.Component {
 
   selectMode = (mode) => {
     this.setState({
-      setMode: mode    
+      setMode: mode,
+      page: "/instructions"
     })
     this.grabAllPokemonNames()
   }
@@ -241,7 +242,8 @@ class App extends React.Component {
     answerSets.forEach(roundOptions => this.shuffle(roundOptions))
 
     this.setState({
-      answerTopics, answerSets
+      answerTopics, answerSets,
+      page: "/quiz"
     })
   }
 
@@ -262,74 +264,61 @@ class App extends React.Component {
     }
     return array;
   }
+
+  endQuiz = () => {
+    this.setState({
+      page: "/finished"
+    })
+  }
   
   startOver = () => {
     this.setState({
       setMode: "",
       round: 0,
-      score: 0
+      score: 0,
+      page: "/"
     })
   }
 
   render() {
-    return (
-      <Router>
-        <Route
-        exact
-        path="/"
-        render={() => (
-          <>
-            <Heading />
-            <Subheading />
-            <Modes 
-              selectMode={this.selectMode} 
-              modes={this.state.modes}
-            />
-          </>
-          )}
+    switch (this.state.page) {
+      case "/": 
+        return <>
+        <Heading />
+        <Subheading />
+        <Modes 
+          selectMode={this.selectMode} 
+          modes={this.state.modes}
         />
-        <Route 
-          path="/instructions"
-          render={() => (
-              <InstructionsPage 
-                setMode={this.state.setMode} 
-                modes={this.state.modes} 
-                generatePossibleAnswers={this.generatePossibleAnswers}
-                pokemonSet={this.state.pokemonSet}
-              />
-          )}
+      </>
+      case "/instructions": 
+        return <InstructionsPage 
+        setMode={this.state.setMode} 
+        modes={this.state.modes} 
+        generatePossibleAnswers={this.generatePossibleAnswers}
+        pokemonSet={this.state.pokemonSet}
+      />
+      case "/quiz": 
+        return  <Quiz 
+        setMode = {this.state.setMode} 
+        modes = {this.state.modes} 
+        round = {this.state.round}
+        score = {this.state.score}
+        questionSet = {this.state.questionSet}
+        answerSets = {this.state.answerSets}
+        answerTopics = {this.state.answerTopics}
+        roundCounter = {this.roundCounter}
+        scoreCounter = {this.scoreCounter}
+        startOver = {this.startOver}
+        endQuiz = {this.endQuiz}
         />
-        <Route 
-          path="/quiz"
-          render={() => (
-              <Quiz 
-              setMode = {this.state.setMode} 
-              modes = {this.state.modes} 
-              round = {this.state.round}
-              score = {this.state.score}
-              questionSet = {this.state.questionSet}
-              answerSets = {this.state.answerSets}
-              answerTopics = {this.state.answerTopics}
-              roundCounter = {this.roundCounter}
-              scoreCounter = {this.scoreCounter}
-              startOver = {this.startOver}
-              />
-          )}
+      case "/finished": 
+        return <FinalPage   
+        score = {this.state.score}   
+        startOver = {this.startOver}
+        setMode = {this.state.setMode}
         />
-        <Route 
-          path="/finished"
-          render={() => (
-            <>
-              <FinalPage   
-              score = {this.state.score}   
-              startOver = {this.startOver}
-              setMode = {this.state.setMode}
-              />
-          </>
-          )}
-        />
-      </Router>
-    )
+    }
   }
 }
 
