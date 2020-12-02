@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import AnswersWrapper from "../answers_wrapper/AnswersWrapper"
-import ConfirmNextWrapper from "../confirm_next_wrapper/ConfirmNextWrapper"
+import AnswersWrapper from "./answers_wrapper/AnswersWrapper"
+import ConfirmNextWrapper from "./confirm_next_wrapper/ConfirmNextWrapper"
 
 export class AnswersConfirmWrapper extends Component {
   state = {

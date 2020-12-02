@@ -12,6 +12,7 @@
   --secondary-text-font: "Trocchi";
   border-radius: 10px;
   border: none;
+  outline: none;
 }
 
 html {
