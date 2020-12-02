@@ -3,6 +3,7 @@
   padding: 1em;
   background: var(--poke-blue);
   border: solid transparent 10px;
+  color: white;
 }
 
 .quiz_answer_buttons_selected {
@@ -10,6 +11,7 @@
   padding: 1em;
   background: var(--poke-blue);
   border: solid green 10px;
+  color: white;
 }
 
 .quiz_answer_buttons_correct {
@@ -17,6 +19,7 @@
   padding: 1em;
   background: green;
   border: solid transparent 10px;
+  color: white;
 }
 
 .quiz_answer_buttons_incorrect {
@@ -24,4 +27,5 @@
   padding: 1em;
   background: var(--poke-red);
   border: solid transparent 10px;
+  color: white;
 }
