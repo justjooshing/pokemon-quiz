@@ -13,5 +13,5 @@
 .quiz_confirm_next_wrapper {
   display: flex;
   padding: 1em;
-  justify-content: flex-end;
+  align-self: flex-end;
 }
