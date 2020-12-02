@@ -49,6 +49,7 @@ body {
   background-color: var(--poke-dark-red);
   padding: 1em;
   margin: 1em 2em;
+  cursor: pointer;
 }
 .instructions_continue_button_text {
   padding-bottom: 5px;
@@ -90,6 +91,7 @@ body {
   padding: 1em;
   color: #fff;
   text-decoration: none;
+  cursor: pointer;
 }
 .mode_heading {
   padding-bottom: 5px;
@@ -127,6 +129,7 @@ body {
   background: var(--poke-blue);
   border-radius: 20px;
   padding: 10px;
+  cursor: pointer;
 }
 .indicators_wrapper {
   display: flex;
@@ -154,6 +157,7 @@ body {
   background: var(--poke-blue);
   border: solid transparent 10px;
   color: white;
+  cursor: pointer;
 }
 .quiz_answer_buttons_selected {
   text-align: center;
@@ -161,6 +165,7 @@ body {
   background: var(--poke-blue);
   border: solid green 10px;
   color: white;
+  cursor: pointer;
 }
 .quiz_answer_buttons_correct {
   text-align: center;
@@ -176,13 +181,19 @@ body {
   border: solid transparent 10px;
   color: white;
 }
+.quiz_answer_buttons_post_selection {
+  text-align: center;
+  padding: 1em;
+  background: var(--poke-blue);
+  border: solid transparent 10px;
+  color: white;
+}
 .quiz_answers_wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 1em;
   margin: 2em 1em 0em;
-  cursor: pointer;
 }
 .quiz_confirm_button {
   background: var(--poke-red);
@@ -286,6 +297,7 @@ body {
   background: var(--poke-red);
   cursor: pointer;
   padding: 0.8em;
+  cursor: pointer;
 }
 .start_over_button_text {
   font-family: var(--main-text-font);

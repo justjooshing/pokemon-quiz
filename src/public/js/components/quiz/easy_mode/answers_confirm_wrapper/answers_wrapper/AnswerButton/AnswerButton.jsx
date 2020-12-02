@@ -9,7 +9,6 @@ export class AnswerButton extends Component {
 
   render() {
     let { answer, selectedAnswer, whichButton, correctAnswer } = this.props;
-    const lowerCaseSelectedAnswer = selectedAnswer.toLowerCase();
     const upperCaseAnswer = capitaliseFirstLetter(answer)
 
     if (whichButton === "next") {
@@ -18,8 +17,8 @@ export class AnswerButton extends Component {
           className={
             answer === correctAnswer ? 
             "quiz_answer_buttons_correct" 
-            : (answer === lowerCaseSelectedAnswer) && (answer !== correctAnswer) ? "quiz_answer_buttons_incorrect"
-            : "quiz_answer_buttons"
+            : (answer === selectedAnswer) && (answer !== correctAnswer) ? "quiz_answer_buttons_incorrect"
+            : "quiz_answer_buttons_post_selection"
           }
           >
           {upperCaseAnswer}
@@ -29,7 +28,7 @@ export class AnswerButton extends Component {
       return (
         <button type="button" 
           className={
-            answer === lowerCaseSelectedAnswer ? "quiz_answer_buttons_selected" : 
+            answer === selectedAnswer ? "quiz_answer_buttons_selected" : 
             "quiz_answer_buttons" }
           onClick={() => this.props.isSelected(answer)
           }>

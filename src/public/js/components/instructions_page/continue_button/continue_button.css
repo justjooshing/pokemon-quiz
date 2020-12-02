@@ -4,6 +4,7 @@
   background-color: var(--poke-dark-red);
   padding: 1em;
   margin: 1em 2em;
+  cursor: pointer;
 }
 
 .instructions_continue_button_text {
