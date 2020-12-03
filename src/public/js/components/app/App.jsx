@@ -276,7 +276,9 @@ class App extends React.Component {
       setMode: "",
       round: 0,
       score: 0,
-      page: "/"
+      page: "/",
+      answerSets: [],
+      answerTopics: []
     })
   }
 
