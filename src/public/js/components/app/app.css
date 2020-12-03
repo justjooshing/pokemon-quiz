@@ -2,6 +2,7 @@ body {
   position: relative;
   background-color: var(--poke-yellow);
   font-family: var(--secondary-text-font);
+  width: 100%;
   max-width: 425px;
 }
 
