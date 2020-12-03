@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
@@ -39,4 +40,9 @@ module.exports = {
     compress: true,
     port: 8000,
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, "src", "views", "index.html"),
+    }),
+  ],
 };
