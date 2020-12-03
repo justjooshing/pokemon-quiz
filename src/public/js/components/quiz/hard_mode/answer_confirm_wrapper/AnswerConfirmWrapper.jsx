@@ -34,19 +34,14 @@ export class AnswerConfirmWrapper extends Component {
   }
 
   checkAnswer = () => {
-    this.setState({
-      submittedAnswer: this.state.tempSubmittedAnswer
-      }, () => {
-
-      let {submittedAnswer} = this.state;
+      let submittedAnswer = this.state.tempSubmittedAnswer;
 
       //topic will either be "name" or "type"
       const correctAnswer = this.props.pokemon[this.props.topic];
 
       if (submittedAnswer === correctAnswer) {
         this.props.scoreCounter();
-      }
-      if (submittedAnswer.includes("/")) {
+      } else if (submittedAnswer.includes("/")) {
         submittedAnswer = submittedAnswer.split("/").reverse().join("/");
         if (submittedAnswer === correctAnswer) {
           this.props.scoreCounter();
@@ -54,9 +49,9 @@ export class AnswerConfirmWrapper extends Component {
       }
       this.setState({
         whichButton: "next",
-        correctAnswer
+        correctAnswer,
+        submittedAnswer
       })
-    })
   }
   
   nextQuestion = () => {
