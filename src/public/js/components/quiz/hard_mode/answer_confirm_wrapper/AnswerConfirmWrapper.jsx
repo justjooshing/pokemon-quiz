@@ -38,12 +38,19 @@ export class AnswerConfirmWrapper extends Component {
       submittedAnswer: this.state.tempSubmittedAnswer
       }, () => {
 
-      const {submittedAnswer} = this.state;
+      let {submittedAnswer} = this.state;
+
+      //topic will either be "name" or "type"
       const correctAnswer = this.props.pokemon[this.props.topic];
 
-    //topic will either be "name" or "type"
       if (submittedAnswer === correctAnswer) {
         this.props.scoreCounter();
+      }
+      if (submittedAnswer.includes("/")) {
+        submittedAnswer = submittedAnswer.split("/").reverse().join("/");
+        if (submittedAnswer === correctAnswer) {
+          this.props.scoreCounter();
+        }
       }
       this.setState({
         whichButton: "next",
