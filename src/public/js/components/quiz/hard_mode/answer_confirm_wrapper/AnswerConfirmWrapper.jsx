@@ -39,14 +39,20 @@ export class AnswerConfirmWrapper extends Component {
       //topic will either be "name" or "type"
       const correctAnswer = this.props.pokemon[this.props.topic];
 
+      if (submittedAnswer === "farfetch'd") {
+        submittedAnswer = "farfetchd" 
+      }
+
       if (submittedAnswer === correctAnswer) {
         this.props.scoreCounter();
+        //Check for submitting types other way around
       } else if (submittedAnswer.includes("/")) {
         submittedAnswer = submittedAnswer.split("/").reverse().join("/");
         if (submittedAnswer === correctAnswer) {
           this.props.scoreCounter();
         }
       }
+      
       this.setState({
         whichButton: "next",
         correctAnswer,
