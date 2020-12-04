@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+
 const path = require("path");
 
 module.exports = {
@@ -14,7 +16,7 @@ module.exports = {
   resolve: {
     extensions: [".jsx", ".js"],
   },
-  mode: "development",
+  mode: "production",
   module: {
     rules: [
       {
@@ -45,4 +47,8 @@ module.exports = {
       template: path.join(__dirname, "src", "views", "index.html"),
     }),
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
 };
