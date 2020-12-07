@@ -16,7 +16,7 @@ module.exports = {
   resolve: {
     extensions: [".jsx", ".js"],
   },
-  mode: "development",
+  mode: "production",
   module: {
     rules: [
       {
