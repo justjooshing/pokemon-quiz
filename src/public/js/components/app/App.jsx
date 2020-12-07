@@ -9,6 +9,7 @@ import InstructionsPage from "../instructions_page/InstructionsPage"
 import Quiz from "../quiz/Quiz";
 
 import FinalPage from "../final_page/FinalPage"
+import pokeball from "../../../../images/instructions/pokeball.png";
 
 class App extends React.Component {
   state = {
@@ -89,7 +90,8 @@ class App extends React.Component {
     ],
     answerSets: [
 
-    ]
+    ],
+    questionsReady: false
   }
 
   selectMode = (mode) => {
@@ -133,7 +135,7 @@ class App extends React.Component {
 
     //set state with all 151 pokemon names array
     this.setState({
-      names: allPokemonNames
+      names: allPokemonNames,
     }, () => this.generateQuestions())
 }
 
@@ -158,6 +160,7 @@ class App extends React.Component {
       if (pokemon.name.includes("nidoran")) {
         pokemon.name = "nidoran"
       }
+      
       //remove hypen from mr mime
       if (pokemon.name === "mr-mime") {
         pokemon.name = "mr mime"
@@ -182,6 +185,7 @@ class App extends React.Component {
     //Set state with new pokemon set now containing (n) pokemon
     this.setState({
       questionSet,
+      questionsReady: true
     });
 }
 
@@ -278,7 +282,9 @@ class App extends React.Component {
       score: 0,
       page: "/",
       answerSets: [],
-      answerTopics: []
+      answerTopics: [],
+      questionSet: [],
+      questionsReady: false
     })
   }
 
@@ -299,6 +305,8 @@ class App extends React.Component {
           modes={this.state.modes} 
           generatePossibleAnswers={this.generatePossibleAnswers}
           pokemonSet={this.state.pokemonSet}
+          questionsReady={this.state.questionsReady}
+          pokeball={pokeball}
         />
       case "/quiz": 
         return  <Quiz 
