@@ -6,8 +6,7 @@ export class AnswerInput extends Component {
     return (
       <div>
         <input 
-          type="text" 
-          required 
+          type="text"
           className= {
             (whichButton === "next" && correctAnswer === submittedAnswer) ? "answer_input_correct" :
             whichButton === "next" ? "answer_input_incorrect" : 
