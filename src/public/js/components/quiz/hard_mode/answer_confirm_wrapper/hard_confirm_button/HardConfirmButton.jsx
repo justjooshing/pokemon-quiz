@@ -5,7 +5,7 @@ export class HardConfirmButton extends Component {
     const {whichButton} = this.props
     return (
       <div className="quiz_confirm_next_wrapper">
-        <button type="button" className="quiz_confirm_button" 
+        <button type="submit" className="quiz_confirm_button" 
           onClick={whichButton === "confirm" ? () => this.props.checkAnswer() : () => this.props.nextQuestion()}
         >
           <span className="quiz_confirm_button_text">{whichButton}</span>
