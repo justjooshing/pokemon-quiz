@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import Heading from "../intro/heading/Heading"
-import Subheading from "../intro/subheading/Subheading"
-import Modes from "../intro/modes/Modes"
+import Heading from "../intro/heading/Heading";
+import Subheading from "../intro/subheading/Subheading";
+import Modes from "../intro/modes/Modes";
 
-import InstructionsPage from "../instructions_page/InstructionsPage"
+import InstructionsPage from "../instructions_page/InstructionsPage";
 
 import Quiz from "../quiz/Quiz";
 
-import FinalPage from "../final_page/FinalPage"
+import FinalPage from "../final_page/FinalPage";
 import pokeball from "../../../../images/instructions/pokeball.png";
 
 class App extends React.Component {
@@ -18,126 +18,127 @@ class App extends React.Component {
     round: 0,
     score: 0,
     modes: {
-      easy:  {
-          id: "1",
-          type: "easy",
-          button_heading: "EASY",
-          button_paragraph: "For pokemon masters in training",
-          instructions: [
-            "You will be presented with 10 questions.",
-            "One at a time.",
-            "You will be shown a picture of a pokemon and a question.",
-            "You will also be given four answer options.",
-            "Read the question carefully.",
-            "Select the appropriate answer.",
-          ],
-        },
-      hard:  {
-          id: "2",
-          type: "hard",
-          button_heading: "HARD",
-          button_paragraph: "For experienced pokemon masters",
-          instructions: [
-            "You will be presented with 10 questions.",
-            "One at a time.",
-            "You will be shown a picture of a pokemon and a question.",
-            "Read the question carefully.",
-            "Submit your answer in the textbox provided.",
-          ],
-        }
+      easy: {
+        id: "1",
+        type: "easy",
+        button_heading: "EASY",
+        button_paragraph: "For pokemon masters in training",
+        instructions: [
+          "You will be presented with 10 questions.",
+          "One at a time.",
+          "You will be shown a picture of a pokemon and a question.",
+          "You will also be given four answer options.",
+          "Read the question carefully.",
+          "Select the appropriate answer.",
+        ],
+      },
+      hard: {
+        id: "2",
+        type: "hard",
+        button_heading: "HARD",
+        button_paragraph: "For experienced pokemon masters",
+        instructions: [
+          "You will be presented with 10 questions.",
+          "One at a time.",
+          "You will be shown a picture of a pokemon and a question.",
+          "Read the question carefully.",
+          "Submit your answer in the textbox provided.",
+        ],
+      },
     },
     types: [
-      "grass/poison", 
-      "fire", 
-      "fire/flying", 
-      "water", 
-      "bug", 
-      "bug/flying", 
-      "bug/poison", 
-      "normal/flying", 
-      "normal", 
-      "poison", 
-      "electric", 
-      "ground", 
-      "poison/ground", 
-      "fairy", 
-      "normal/fairy", 
-      "poison/flying", 
-      "bug/grass", 
-      "fighting", 
-      "water/fighting", 
-      "psychic", 
-      "water/poison", 
-      "rock/ground", 
-      "water/psychic", 
-      "electric/steel", 
-      "water/ice", 
-      "ghost/poison", 
-      "grass/psychic", 
-      "ground/rock", 
-      "grass", 
-      "psychic/fairy", 
-      "ice/psychic", 
-      "water/flying", 
-      "rock/water", 
-      "rock/flying", 
-      "ice/flying", 
-      "electric/flying", 
-      "dragon", 
-      "dragon/flying"],
-    answerTopics: [
-
+      "grass/poison",
+      "fire",
+      "fire/flying",
+      "water",
+      "bug",
+      "bug/flying",
+      "bug/poison",
+      "normal/flying",
+      "normal",
+      "poison",
+      "electric",
+      "ground",
+      "poison/ground",
+      "fairy",
+      "normal/fairy",
+      "poison/flying",
+      "bug/grass",
+      "fighting",
+      "water/fighting",
+      "psychic",
+      "water/poison",
+      "rock/ground",
+      "water/psychic",
+      "electric/steel",
+      "water/ice",
+      "ghost/poison",
+      "grass/psychic",
+      "ground/rock",
+      "grass",
+      "psychic/fairy",
+      "ice/psychic",
+      "water/flying",
+      "rock/water",
+      "rock/flying",
+      "ice/flying",
+      "electric/flying",
+      "dragon",
+      "dragon/flying",
     ],
-    answerSets: [
-
-    ],
-    questionsReady: false
-  }
+    answerTopics: [],
+    answerSets: [],
+    questionsReady: false,
+  };
 
   selectMode = (mode) => {
     this.setState({
       setMode: mode,
-      page: "/instructions"
-    })
-    this.grabAllPokemonNames()
-  }
+      page: "/instructions",
+    });
+    this.grabAllPokemonNames();
+  };
 
   roundCounter = () => {
     this.setState({
-      round: this.state.round +1
+      round: this.state.round + 1,
     });
-  }
+  };
 
   scoreCounter = () => {
     this.setState({
-      score: this.state.score +1
-    })
-  }
+      score: this.state.score + 1,
+    });
+  };
 
   grabAllPokemonNames = async () => {
-
-    const allPokemonFetch = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=151");
+    const allPokemonFetch = await fetch(
+      "https://pokeapi.co/api/v2/pokemon/?limit=151"
+    );
     const allPokemonJSON = await allPokemonFetch.json();
 
     //Push names only into an array
     const allPokemonNames = [];
-    allPokemonJSON.results.forEach(pokemon => {
+    allPokemonJSON.results.forEach((pokemon) => {
       //remove the female and male tags from the nidoran names
       if (pokemon.name.includes("nidoran")) {
-        pokemon.name = "nidoran"
+        pokemon.name = "nidoran";
       }
-      //remove hyphen from mr mime      
+      //remove hyphen from mr mime
       if (pokemon.name === "mr-mime") {
-        pokemon.name = "mr mime"
+        pokemon.name = "mr mime";
       }
-      allPokemonNames.push(pokemon.name)
-    })
+      allPokemonNames.push(pokemon.name);
+    });
 
     //set state with all 151 pokemon names array
-    this.setState({
-      names: allPokemonNames,
-    }, () => this.generateQuestions())
-}
+    this.setState(
+      {
+        names: allPokemonNames,
+      },
+      () => this.generateQuestions()
+    );
+  };
 
   generateQuestions = async () => {
     const numberOfPokemon = 10;
@@ -149,7 +150,7 @@ class App extends React.Component {
       const pokemon = {};
       const nameUrl = `https://pokeapi.co/api/v2/pokemon/${number}`;
       const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png`;
-    
+
       const singlePokemonResponse = await fetch(nameUrl);
       const singlePokemonJSON = await singlePokemonResponse.json();
 
@@ -158,18 +159,18 @@ class App extends React.Component {
 
       //remove the female and male tags from the nidoran names
       if (pokemon.name.includes("nidoran")) {
-        pokemon.name = "nidoran"
+        pokemon.name = "nidoran";
       }
-      
+
       //remove hypen from mr mime
       if (pokemon.name === "mr-mime") {
-        pokemon.name = "mr mime"
+        pokemon.name = "mr mime";
       }
 
       //Grab, assign and join type
       pokemon.type = [];
-      singlePokemonJSON.types.forEach(typeIndex => {
-        pokemon.type.push(typeIndex.type.name)    
+      singlePokemonJSON.types.forEach((typeIndex) => {
+        pokemon.type.push(typeIndex.type.name);
       });
       pokemon.type = pokemon.type.join("/");
 
@@ -177,24 +178,26 @@ class App extends React.Component {
       pokemon.image = imageUrl;
 
       //Assign pokemon to set
-      if (!questionSet.some(pokemonIndex => pokemonIndex.name === pokemon.name)) {
-      questionSet.push(pokemon)
+      if (
+        !questionSet.some((pokemonIndex) => pokemonIndex.name === pokemon.name)
+      ) {
+        questionSet.push(pokemon);
       }
     }
 
     //Set state with new pokemon set now containing (n) pokemon
     this.setState({
       questionSet,
-      questionsReady: true
+      questionsReady: true,
     });
-}
+  };
 
   generatePossibleAnswers = () => {
     const answerTopics = [];
     const answerSets = [];
 
     //Generate array of Type answers
-    const generateTypeAnswers = (selectedPokemon) => {     
+    const generateTypeAnswers = (selectedPokemon) => {
       const possibleTypeAnswers = [];
 
       //Add correct type answer
@@ -204,16 +207,16 @@ class App extends React.Component {
       while (possibleTypeAnswers.length < 4) {
         const num = Math.floor(Math.random() * 37);
         if (!possibleTypeAnswers.includes(this.state.types[num])) {
-          possibleTypeAnswers.push(this.state.types[num])
+          possibleTypeAnswers.push(this.state.types[num]);
         }
       }
-      answerSets.push(possibleTypeAnswers)
-    }
+      answerSets.push(possibleTypeAnswers);
+    };
 
-     //Generate array of Name answers
-     const generateNameAnswers = (selectedPokemon) => {         
+    //Generate array of Name answers
+    const generateNameAnswers = (selectedPokemon) => {
       const possibleNameAnswers = [];
-          
+
       //Add correct name answer
       possibleNameAnswers.push(selectedPokemon.name);
 
@@ -221,60 +224,56 @@ class App extends React.Component {
       while (possibleNameAnswers.length < 4) {
         const num = Math.floor(Math.random() * 151);
         if (!possibleNameAnswers.includes(this.state.names[num])) {
-          possibleNameAnswers.push(this.state.names[num])
+          possibleNameAnswers.push(this.state.names[num]);
         }
       }
-      answerSets.push(possibleNameAnswers)
+      answerSets.push(possibleNameAnswers);
+    };
+
+    if (chosenTopic === "type") {
+      generateTypeAnswers(selectedPokemon);
+    } else if (chosenTopic === "name") {
+      generateNameAnswers(selectedPokemon);
     }
 
-    const generateAnswerSets = (selectedPokemon) => {
-      const questionTopic = ['name', 'type'];
-      const chosenTopic = questionTopic[Math.floor(Math.random() * 2)];
-      answerTopics.push(chosenTopic)  
-       
-      if (chosenTopic === 'type') {
-        generateTypeAnswers(selectedPokemon)
-      } else if (chosenTopic === 'name') {
-        generateNameAnswers(selectedPokemon)
-      }
-    }
-      
-    this.state.questionSet.forEach(selectedPokemon => {
+    this.state.questionSet.forEach((selectedPokemon) => {
       generateAnswerSets(selectedPokemon);
-    })
+    });
 
-    answerSets.forEach(roundOptions => this.shuffle(roundOptions))
+    answerSets.forEach((roundOptions) => this.shuffle(roundOptions));
 
     this.setState({
-      answerTopics, answerSets,
-      page: "/quiz"
-    })
-  }
+      answerTopics,
+      answerSets,
+      page: "/quiz",
+    });
+  };
 
   shuffle = (array) => {
-    let currentIndex = array.length, temporaryValue, randomIndex;
-  
+    let currentIndex = array.length,
+      temporaryValue,
+      randomIndex;
+
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
-  
       // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
-  
+
       // And swap it with the current element.
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
     return array;
-  }
+  };
 
   endQuiz = () => {
     this.setState({
-      page: "/finished"
-    })
-  }
-  
+      page: "/finished",
+    });
+  };
+
   startOver = () => {
     this.setState({
       setMode: "",
@@ -284,50 +283,55 @@ class App extends React.Component {
       answerSets: [],
       answerTopics: [],
       questionSet: [],
-      questionsReady: false
-    })
-  }
+      questionsReady: false,
+    });
+  };
 
   render() {
     switch (this.state.page) {
-      case "/": 
-        return <>
-          <Heading />
-          <Subheading />
-          <Modes 
-            selectMode={this.selectMode} 
+      case "/":
+        return (
+          <>
+            <Heading />
+            <Subheading />
+            <Modes selectMode={this.selectMode} modes={this.state.modes} />
+          </>
+        );
+      case "/instructions":
+        return (
+          <InstructionsPage
+            setMode={this.state.setMode}
             modes={this.state.modes}
+            generatePossibleAnswers={this.generatePossibleAnswers}
+            pokemonSet={this.state.pokemonSet}
+            questionsReady={this.state.questionsReady}
+            pokeball={pokeball}
           />
-         </>
-      case "/instructions": 
-        return <InstructionsPage 
-          setMode={this.state.setMode} 
-          modes={this.state.modes} 
-          generatePossibleAnswers={this.generatePossibleAnswers}
-          pokemonSet={this.state.pokemonSet}
-          questionsReady={this.state.questionsReady}
-          pokeball={pokeball}
-        />
-      case "/quiz": 
-        return  <Quiz 
-          setMode = {this.state.setMode} 
-          modes = {this.state.modes} 
-          round = {this.state.round}
-          score = {this.state.score}
-          questionSet = {this.state.questionSet}
-          answerSets = {this.state.answerSets}
-          answerTopics = {this.state.answerTopics}
-          roundCounter = {this.roundCounter}
-          scoreCounter = {this.scoreCounter}
-          startOver = {this.startOver}
-          endQuiz = {this.endQuiz}
-        />
-      case "/finished": 
-        return <FinalPage   
-          score = {this.state.score}   
-          startOver = {this.startOver}
-          setMode = {this.state.setMode}
-        />
+        );
+      case "/quiz":
+        return (
+          <Quiz
+            setMode={this.state.setMode}
+            modes={this.state.modes}
+            round={this.state.round}
+            score={this.state.score}
+            questionSet={this.state.questionSet}
+            answerSets={this.state.answerSets}
+            answerTopics={this.state.answerTopics}
+            roundCounter={this.roundCounter}
+            scoreCounter={this.scoreCounter}
+            startOver={this.startOver}
+            endQuiz={this.endQuiz}
+          />
+        );
+      case "/finished":
+        return (
+          <FinalPage
+            score={this.state.score}
+            startOver={this.startOver}
+            setMode={this.state.setMode}
+          />
+        );
     }
   }
 }
