@@ -229,12 +229,17 @@ class App extends React.Component {
       }
       answerSets.push(possibleNameAnswers);
     };
+    const generateAnswerSets = (selectedPokemon) => {
+      const questionTopic = ["name", "type"];
+      const chosenTopic = questionTopic[Math.floor(Math.random() * 2)];
+      answerTopics.push(chosenTopic);
 
-    if (chosenTopic === "type") {
-      generateTypeAnswers(selectedPokemon);
-    } else if (chosenTopic === "name") {
-      generateNameAnswers(selectedPokemon);
-    }
+      if (chosenTopic === "type") {
+        generateTypeAnswers(selectedPokemon);
+      } else if (chosenTopic === "name") {
+        generateNameAnswers(selectedPokemon);
+      }
+    };
 
     this.state.questionSet.forEach((selectedPokemon) => {
       generateAnswerSets(selectedPokemon);
