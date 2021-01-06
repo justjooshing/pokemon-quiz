@@ -1,19 +1,3 @@
-## Pokemon Quiz
+This was my initial attempt to built my pokemon quiz app when I was learning React with class-based components.
 
-An ES6 quiz app build in React
-
-### Usage
-
-Install dependencies
-
-```
-npm install
-```
-
-Start server
-
-```
-npm start
-```
-
-Open web browser @ localhost:8000
+My code has since improved, and I rebuilt this using hooks and properly thinking about where all the code should sit. You can find that [here] (https://github.com/justjooshing/CRA-hooks-pokemon-quiz)
